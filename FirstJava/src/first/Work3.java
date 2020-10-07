@@ -63,7 +63,7 @@ public class Work3 {
 		System.out.println((num == 0)?"0":((num%2==0)?"양수":"음수"));
 		/*
 		[실행결과]
-		양수
+		양수 
 		*/
 		 
 		/*
@@ -111,6 +111,11 @@ public class Work3 {
 			celcius = celcius + 1;
 		}
 		
+		// 강사님 코드 
+		// 0.5는 반올림 ex) 0.2 + 0.5 = 0.7 을 int 로 바꾸면 0
+		//              0.7 + 0.5 = 1.2을 int로 바꾸면 1 이 되어서 반올림한 값과 같게 나옴 
+		celcius = (int)(5/9f * (fahrenheit - 32) * 100 + 0.5) ; 
+		
 		System.out.println("Fahrenheit:"+fahrenheit);
 		System.out.println("Celcius:"+ celcius/100);
 		/*
@@ -128,7 +133,7 @@ public class Work3 {
 		byte cc = (byte)(a + b);   
 		char ch = 'A';
 		ch = (char)(ch + 2);     
-		float f = 3f / 2f;  
+		float f = 3f / 2f;     
 		long l = 3000L * 3000L * 3000L;   
 		float f2 = 0.1f;
 		double d = 0.1;
@@ -153,7 +158,7 @@ public class Work3 {
 		*/
 		char ch2 = 'z';
 		
-		boolean bb = ( ( ('A' <= ch2 && ch2 <='Z') || ('a' <= ch2 && ch2 <='z') || (0 <= ch2 && ch2 <= 9) ) ? true:false);
+		boolean bb = ( ( ('A' <= ch2 && ch2 <='Z') || ('a' <= ch2 && ch2 <='z') || ('0' <= ch2 && ch2 <= '9') ) ? true:false);
 		System.out.println(bb);
 		/*
 		[실행결과]
@@ -164,10 +169,10 @@ public class Work3 {
 		[10] 다음은 대문자를 소문자로 변경하는 코드인데,문자 ch에 저장된 문자가 대문자인 경우에만 소문자로 변경한다.문자코드는 소문자가 대문자보다32만큼 더 크다.예를들어 'A‘의 코드는65이고 ’a'의 코드는97이다. (1)~(2)에 알맞은 코드를 넣으시오.
 		*/
 		char ch3 = 'A';
-		char lowerCase = ( ('A' <= ch3 && ch3 <='Z') ) ? (char)((int)ch3+32) : ch3;
+		char lowerCase = ( ('A' <= ch3 && ch3 <='Z') ) ? (char)(ch3 + 32) : ch3;
 		
-		System.out.println("ch:"+ch3);
-		System.out.println("chto lowerCase:"+lowerCase);
+		System.out.println("ch:" + ch3);
+		System.out.println("chto lowerCase:" + lowerCase);
 		/*
 		[실행결과]
 		ch:A
