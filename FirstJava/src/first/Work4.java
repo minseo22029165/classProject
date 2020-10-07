@@ -264,7 +264,9 @@ public class Work4 {
 		*/
 		for(i = 0; i <= 9; i++) {
 			for(j = 0; j <=9; j++) {
-				// 모르겠음!!
+				if ((10 * i + 1 * j) + (10 * j + 1 * i) == 99) {
+					System.out.println("A : " + i + ", B : " + j);
+				}
 			}
 		}
 		

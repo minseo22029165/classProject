@@ -41,7 +41,15 @@ public class Work2 {
 			sum2 = sum2 + (i * num); 
 			System.out.println(num + sum2);
 		}			
+		
+		// 선생님꺼 
+		int oper1 = 3+6;
+		int oper2 = 3+6+9;		// oper2 = oper1 + 9 로 바꿀 수 있음
+		int oper3 = 3+6+9+12;	// oper3 = oper2 + 12 로 바꿀 수 있음
 
+		oper2 = oper1 + 9;
+		oper3 = oper2 + 12;
+				
 		/*
 		문제4.
 		a= {{(25+5)+(36/4)}-72}*5, b= {{(25x5)+(36-4)}-71}/4, c=(128/4)*2 일 때
@@ -57,9 +65,7 @@ public class Work2 {
 		b = ( ( (25*5) + (36-4) ) -71 ) / 4;
 		c = (128 / 4) * 2;
 		
-		if (a>b && b>c) {
-			result = true;			
-		}
+		result = (a>b && b>c) ? true : false; 
 		System.out.println(result);
 	}
 
