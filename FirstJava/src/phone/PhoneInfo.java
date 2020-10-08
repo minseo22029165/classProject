@@ -12,9 +12,9 @@ package phone;
 
 */
 public class PhoneInfo {
-	String name = "";  // 이름
-	String phoneNumber = "";  // 전화번호
-	String birthday = ""; // 생년월일
+	String name;  // 이름
+	String phoneNumber;  // 전화번호
+	String birthday; // 생년월일
 
 	// 생성자 호출 
 	PhoneInfo(String name, String phoneNumber, String birthday){
@@ -31,7 +31,7 @@ public class PhoneInfo {
 	
 	// 사용자 정보 출력
 	void PersonInfo() {
-		if (birthday == "") {
+		if (birthday == null) {
 			System.out.println("이름 : " + name + ", 전화번호 : " + phoneNumber);
 		} else {
 			System.out.println("이름 : " + name + ", 전화번호 : " + phoneNumber + ", 생년월일 : " + birthday);
