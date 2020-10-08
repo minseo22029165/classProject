@@ -43,6 +43,19 @@ public class Work4 {
 			System.out.println("300이상");
 		} 
 		
+		// 강사님 
+		if (num < 0) {
+			System.out.println("0 미만");
+		} else if (num < 100) {
+			System.out.println("0이상 100 미만");
+		} else if (num < 200) {
+			System.out.println("100이상 200 미만");
+		} else if (num < 300) {
+			System.out.println("200이상 300 미만");
+		} else {
+			System.out.println("300이상");
+		} 
+
 		/*
 ​		문제3.
 		
@@ -252,6 +265,13 @@ public class Work4 {
 				System.out.println(i + " * " + j + " = " + (i * j));
 			}
 			i = i * 2;
+		}
+		
+		// 강사님
+		for(i = 2; i<10; i=i*2) {
+			for(j = 1; j<i+1; j++) {
+				System.out.println(i + " * " + j + " = " + (i * j));
+			}
 		}
 		
 		/*
