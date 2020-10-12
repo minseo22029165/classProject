@@ -9,7 +9,6 @@ package phone;
 	• 전화번호 phoneNumber String
 	• 생년월일 birthday String
 	 단, 생년월일 정보는 저장할 수도 있고, 저장 않을 수도 있게끔 생성자 생성
-
 */
 public class PhoneInfo {
 	String name;  // 이름
@@ -25,30 +24,18 @@ public class PhoneInfo {
 	
 	// 생년월일 없는 생성자 호출 
 	PhoneInfo(String name, String phoneNumber){
-		this.name = name;
-		this.phoneNumber = phoneNumber;		
+//		this.name = name;
+//		this.phoneNumber = phoneNumber;
+		this(name, phoneNumber, null);
 	}
 	
 	// 사용자 정보 출력
 	void PersonInfo() {
-		if (birthday == null) {
-			System.out.println("이름 : " + name + ", 전화번호 : " + phoneNumber);
+		if(birthday == null) {
+			System.out.println("생일 : 입력 데이터 없음");
 		} else {
-			System.out.println("이름 : " + name + ", 전화번호 : " + phoneNumber + ", 생년월일 : " + birthday);
-		}		
+			System.out.println("생일 : " + birthday);
+		}	
 	}
 	
-	public static void main(String[] args) {
-		String nm = "";
-		String number = "";
-		String birth = ""; 
-		
-		// 사용자 정보 입력 
-		PhoneInfo person1 = new PhoneInfo("사람1", "010-1111-1111", "2020-10-07");
-		PhoneInfo person2 = new PhoneInfo("사람2", "010-2222-3333");
-		
-		// 사용자 정보 출력 
-		person1.PersonInfo();
-		person2.PersonInfo();
-	}	
 }

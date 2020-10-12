@@ -14,7 +14,8 @@ public class Work5 {
 		
 		// 2. char형 변수 ch가 공백이나 탭이 아닐 때 true인 조건식
 		char ch = 'c';
-		result = (ch != '\u0000' && ch != '\t') ? true : false;
+		result = (ch != ' ' || ch != '\t') ? true : false;
+		// 요것도 가능 result = !(ch == ' ' && ch == '\t') ? true : false;
 		
 		// 3. char형 변수 ch가 ‘x' 또는 ’X'일 때 true인 조건식
 		result = (ch == 'x' || ch == 'X') ? true : false;
@@ -34,7 +35,7 @@ public class Work5 {
 		result  = (powerOn == true) ? true : false;
 		
 		// 8. 문자열 참조변수 str이 “yes”일 때 true인 조건식	
-		String str = null;
+		String str = "yes";
 		result  = (str.equals("yes")) ? true : false;
 		
 		/*
@@ -67,6 +68,7 @@ public class Work5 {
 		num = 1;
 		sum = 0;
 		while(result) {
+			
 			if(num % 2 == 0) {
 				sum -= num;
 			} else {
@@ -104,11 +106,15 @@ public class Work5 {
 		[6] 두 개의 주사위를 던졌을 때, 눈의 합이 6이 되는 모든 경우의 수를 출력하는 프로그램을작성하시오.
 		*/	
 		for(i=1; i<=6; i++) {
+			/*
 			for(j=1; j<=6; j++) { 
 				if(i + j == 6) {
 					System.out.println("주사위1 : " + i + ", 주사위2 : " + j);
 				}
-			}
+			}*/
+			
+			// 강사님
+			System.out.println("주사위1 : " + i + ", 주사위2 : " + (6-i));
 		}		
 		/*			
 		[7] Math.random()을 이용해서 1부터 6사이의 임의의 정수를 변수 value에 저장하는 코드를완성하라. (1)에 알맞은 코드를 넣으시오.
@@ -125,7 +131,7 @@ public class Work5 {
 		x=5, y=0
 		*/	
 		for(x=0; x<=10; x++) {
-			for(int y=1; y<=6; y++) { 
+			for(int y=0; y<=10; y++) { 
 				if(2 * x + 4 * y == 10) {
 					System.out.println("x값 : " + x + ", y값 : " + y);
 				}
@@ -183,6 +189,7 @@ public class Work5 {
 				num1 = num2;
 				num2 = num3;				
 			}
+			System.out.println();
 		/*			
 		12번 문제는 없습니다.
 		
@@ -197,7 +204,8 @@ public class Work5 {
 			// 반복문과 charAt(inti)를 이용해서 문자열의 문자를
 			// 하나씩 읽어서 검사한다.
 			for(i=0; i < value2.length() ;i++) {
-				if(value2.charAt(i) < '0' && value2.charAt(i) > '9') {
+				if(value2.charAt(i) < '0' || value2.charAt(i) > '9') {
+				//if(!(value2.charAt(i) >= '0' && value2.charAt(i) <= '9')) {
 					isNumber = false;
 					break;
 				}
