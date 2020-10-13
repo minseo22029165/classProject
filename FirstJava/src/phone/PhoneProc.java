@@ -1,20 +1,17 @@
 package phone;
 import java.util.Scanner;
 
-import ver02.PhoneInfor;
-
 public class PhoneProc {
 	String nm;  // 이름
 	String number;  // 전화번호
 	String birth; // 생년월일
 	
-	PhoneInfo info[] = new PhoneInfo[10];  // 사용자 정보 넣기 (!!! 입력받은 사용자 총 수를 구하는건 모르겠어서 임의의 값 넣음 !!!)
+	PhoneInfo info[] = new PhoneInfo[100];  // 사용자 정보 넣기(최대 100개)
+	
+	Scanner scan = new Scanner(System.in);		
 	
 	// 사용자 정보 입력 
 	void save(int count){
-		// TODO Auto-generated method stub
-		Scanner scan = new Scanner(System.in);		
-		
 		System.out.print("이름을 입력하시오.");
 		nm = scan.nextLine();
 		System.out.print("전화번호를 입력하시오.");
@@ -29,6 +26,16 @@ public class PhoneProc {
 		} else {
 			info[count] = new PhoneInfo(nm, number, null);
 		} 		
+	}
+	
+	// 사용자 정보 검색 
+	// 검색 : 이름을 기준으로 데이터를 찾아서 해당 데이터의 정보를 출력
+	void search(int count){
+		System.out.print("검색할 이름을 입력하시오.");
+		nm = scan.nextLine();		
+		if(info[count].name.equals(nm)) {
+			
+		}
 	}
 	
 	// 사용자 정보 출력 
