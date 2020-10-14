@@ -21,12 +21,12 @@ public class PhoneInfo {
 	
 	// 사용자 정보 출력
 	void PersonInfo() {
-		System.out.println("이름 : " + name);
-		System.out.println("전화번호 : " + phoneNumber);		
+		System.out.print("[이름 : " + name + ", ");
+		System.out.print("전화번호 : " + phoneNumber + ", ");
 		if(birthday == null) {
-			System.out.println("생일 : 입력 데이터 없음");
+			System.out.println("생일 : 입력 데이터 없음]");
 		} else {
-			System.out.println("생일 : " + birthday);
+			System.out.println("생일 : " + birthday + "]");
 		}	
 	}
 	

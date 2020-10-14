@@ -1,5 +1,4 @@
 package phone;
-import java.util.Scanner;
 
 /*
  	Version 0.1
@@ -34,39 +33,41 @@ import java.util.Scanner;
 public class PhoneMain {
 
 	public static void main(String[] args) {
-		String menuNum = null;   // 1 : 입력, 2 : 검색, 3 : 삭제, 4 : 종료
-		int count = 0;		// 총 입력 받은 사람 수 
-		
-		Scanner scan = new Scanner(System.in);		
-		
 		// 전화번호부 처리 클래스
 		PhoneProc proc = new PhoneProc();
 		
 		// 전화번호부 입력 받기 
 		while(true) {
 			
-			System.out.println("전화번호부 입력 [입력 : 1, 검색 : 2, 삭제 : 3, 종료 : 4]");
-			menuNum = scan.nextLine();
+			System.out.println("-------------------------------------------------------------");
+			System.out.println("메뉴를 입력하세요  [1 : 입력, 2 : 검색, 3 : 삭제, 4 : 전체출력, 5 : 종료]");
+			System.out.println("-------------------------------------------------------------");
+			char menuNum = Util.scan.nextLine().charAt(0);
 			
 			switch(menuNum) { 
-				case "1" : // 입력 
+				case '1' : // 입력 
 					// 전화번호부 등록 함수 호출
-					proc.save(count);
-					proc.print(count);
-					count++;
+					proc.save();
 					break;
-				case "2" : // 검색
+				case '2' : // 검색
+					proc.search();
+					break;					
+				case '3' : // 삭제
+					proc.delete();
 					break;
-					
-				case "3" : // 삭제
-					break;
-				case "4" : // 종료
+				case '4' : // 전체보기
+					proc.viewAll();
+					break;					
+				case '5' : // 종료
 					System.out.println("전화번호부 종료");
+					System.exit(0);
+					break;
+				default : // 이상한값 
+					System.out.println("값을 잘못 입력하였습니다. 제대로 입력하시오.");
 					break;
 			}
 		}
-		
-		
+			
 
 	}
 
