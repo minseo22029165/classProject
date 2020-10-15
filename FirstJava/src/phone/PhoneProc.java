@@ -23,6 +23,12 @@ public class PhoneProc {
 	
 	// 사용자 정보 입력 
 	void save(){
+		PhoneInfo info[] = new PhoneInfo[10];  // 사용자 정보 넣기 (!!! 입력받은 사용자 총 수를 구하는건 모르겠어서 임의의 값 넣음 !!!)
+	}
+
+	// 사용자 정보 입력 
+	void save(int count){
+		// TODO Auto-generated method stub
 		System.out.print("이름을 입력하시오.");
 		nm = Util.scan.nextLine();
 		System.out.print("전화번호를 입력하시오.");
@@ -107,7 +113,7 @@ public class PhoneProc {
 			info[i].PersonInfo();
 		}
 	}	
-	
+
 	// 사용자 정보 출력 
 	void print(int count){
 		info[count].PersonInfo();

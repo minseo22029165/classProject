@@ -42,7 +42,7 @@ public class Work6 {
 		*/		
 		System.out.println("--------[문제3]--------");
 		System.out.print("원의 반지름을 입력하시오");
-		double num5 = scan.nextFloat();
+		float num5 = scan.nextFloat();
 		System.out.println("원의 둘레 : " + work6.circumference(num5));
 		System.out.println("원의 넓이 : " + work6.circleArea(num5));
 		
@@ -55,7 +55,7 @@ public class Work6 {
 		System.out.println("1이상 100 이하의 소수를 전부 출력 : ");	
 		for (int i = 1 ; i <= 100; i++) {
 			// 소수인지 아닌지 판별
-			if (work6.isPrime(i)) {
+			if (work6.prime(i)) {
 				System.out.print(i + " ");	
 			}			
 		}
@@ -84,14 +84,16 @@ public class Work6 {
 	/*
 	문제3
 	*/
+	final float PI = 3.14f; 
+	
 	// 리턴 : 원의 넓이
-	double circleArea(double r) {
-		return Math.PI*r*r;
+	float circleArea(float r) {
+		return PI*r*r;
 	}
 	
 	// 리턴 : 원의 둘레
-	double circumference(double r) {
-		return 2*Math.PI*r;
+	float circumference(float r) {
+		return 2*PI*r;
 	}
 	
 	/*
@@ -99,7 +101,7 @@ public class Work6 {
 	 */
 	
 	// 리턴 : 전달되는 값이 소수(prime number)인지 아닌지를 판단하여, 소수인경우 true를, 소수가 아닌 경우 false를 반환하는 메서드
-	boolean isPrime(int num) {
+	boolean prime(int num) {
 		boolean result = true;
 		
 		if (num > 1) {
