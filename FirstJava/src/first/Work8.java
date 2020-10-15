@@ -1,5 +1,7 @@
 package first;
 
+import java.util.Scanner;
+
 public class Work8 {
 /*
 	 문제 1.
@@ -57,6 +59,7 @@ public class Work8 {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
 /*
 	 문제 1.
 	int형 1차원 배열을 매개변수로 전달 받아서 배열에 저장된 최대값,
@@ -68,7 +71,15 @@ public class Work8 {
 	int형 배열에 채워질 정수는 프로그램 사용자로부터 입력 받고, 배열의 길이는
 	임의로 결정
 */	
-	int[] arrNum = {10, 5, 100, 70, 23, 55, 7};
+	System.out.print("배열의 길이를 입력하시오");
+	int count = scan.nextInt();
+	int[] arrNum = new int[count];
+			
+	for(int i = 0; i < count; i++) {
+		System.out.print((i + 1) + "번째 배열의 값을 입력하시오.");
+		arrNum[i] = scan.nextInt();
+	}
+	
 	int minNum = miniValue(arrNum);
 	int maxNum = maxValue(arrNum);
 	

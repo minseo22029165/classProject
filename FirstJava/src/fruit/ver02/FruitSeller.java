@@ -6,7 +6,7 @@ package fruit.ver02;
  	작성일시 :2020.10.08 
  */
 public class FruitSeller {
-	int numOfApple;
+	private int numOfApple;
 	int myMoney;
 	final int APPLE_PRICE;
 	
