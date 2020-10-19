@@ -16,6 +16,7 @@ public class PhoneBookManager {
 		cnt++;
 	}
 	
+	
 	// 저장기능 
 	void insertMember() {
 		// 대학, 회사, 가족인지 여부 묻기 
@@ -93,6 +94,12 @@ public class PhoneBookManager {
 	
 	// 삭제 기능 
 	void deleteMember(){
+		// 저장된 데이터가 있는지 조회 
+		if(cnt == 0) {
+			System.out.println("저장된 데이터가 없습니다. 다시 메뉴로 이동합니다.");
+			return; // 메소드의 종료 
+		}
+		
 		System.out.println("정보 삭제를 진행합니다.");
 		System.out.println("삭제하고자 하는 정보의 이름을 입력해주세요.");
 		String name = Util.sc.nextLine();
@@ -113,10 +120,11 @@ public class PhoneBookManager {
 	
 	// 전체 데이터 출력 
 	void displayAll() {
-		if(cnt==0) {
-			System.out.println("등록된 정보가 없습니다.");
-			return;
-		} 
+		// 저장된 데이터가 있는지 조회 
+		if(cnt == 0) {
+			System.out.println("저장된 데이터가 없습니다. 다시 메뉴로 이동합니다.");
+			return; // 메소드의 종료 
+		}
 			
 		System.out.println("전체 정보를 출력합니다.(데이터 총 개수 : " + cnt + ")");
 		for(int i = 0; i < cnt; i++) {
