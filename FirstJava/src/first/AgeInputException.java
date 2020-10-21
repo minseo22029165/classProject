@@ -11,9 +11,7 @@ public class AgeInputException extends Exception {
 	
 	@Override 
 	public String toString() {
-		System.out.println("age : " + age);
-		return null;
-		
+		return "AgeInputException [age=" + age + ", getMessage()=" + getMessage() + "]";
 	}
 
 

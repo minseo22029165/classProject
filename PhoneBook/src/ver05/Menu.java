@@ -9,9 +9,9 @@ public interface Menu {
 	int DISPLAY_ALL = 4;
 	int EXIT = 5;
 	
-	int UNIV = 11;
-	int COM = 12;
-	int CAFE = 13;
+	int UNIV = 1;
+	int COM = 2;
+	int CAFE = 3;
 			
 
 }

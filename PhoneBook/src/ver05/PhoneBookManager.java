@@ -56,7 +56,7 @@ public class PhoneBookManager {
 		
 		Util.sc.nextLine();
 		
-		if(!(select>11 && select <14)) {
+		if( !(select>0 && select<4) ) {
 			System.out.println("메뉴 선택이 올바르지 않습니다.");
 			System.out.println("초기 메뉴로 이동합니다. ");
 		}
