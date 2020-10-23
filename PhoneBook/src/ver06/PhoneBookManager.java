@@ -1,5 +1,7 @@
 package ver06;
 
+import java.util.ArrayList;
+
 import ver04.Util;
 
 public class PhoneBookManager {
@@ -7,17 +9,27 @@ public class PhoneBookManager {
 	// 배열을 이용한 정보의 저장, 삭제, 출력을 하는 기능 
 	
 	// 배열 선언 : 상속 관계이기 때문에  PhoneInfor타입으로 선언 
-	private PhoneInfor[] pBook;  // 전화번호 정보를 저장할 배열 
+	//private PhoneInfor[] pBook;  // 전화번호 정보를 저장할 배열 
+	// ArrayList 객체 생성 
+	ArrayList<PhoneInfor> pBook;
+	
 	private int cnt; // 배열에 저장된 요소의 개수, 배열의 index 로도 사용가능 
 	
+	
 	// 외부에서 인스턴스 생성 못하게  private 로 바꿈 
-	private PhoneBookManager(int num){
-		pBook = new PhoneInfor[num]; // 생성자의 매개변수으 인자를 전달받아 배열 생성 
+	//private PhoneBookManager(int num){
+	private PhoneBookManager(){
+		//pBook = new PhoneInfor[num]; // 생성자의 매개변수의 인자를 전달받아 배열 생성
+
+		// pBook 변수에 ArrayList<Phone>객체 생성 해서 대입
+		pBook = new ArrayList<PhoneInfor>();
+
 		cnt = 0;
 	}
 	
 	// 내부에서 인스턴스 생성 (static이 없으면 manager 변수 자체가 만들어 지지 않는다!!!!!!!)
-	private static PhoneBookManager manager = new PhoneBookManager(100); 
+	//private static PhoneBookManager manager = new PhoneBookManager(100);
+	private static PhoneBookManager manager = new PhoneBookManager();
 	
 	// 외부에서 참조변수를 받을 수 있는 메서드 
 	public static PhoneBookManager getInstance() {
@@ -31,7 +43,8 @@ public class PhoneBookManager {
 	
 	// 배열에 전화번호 정보를 저장하는 메서드 
 	void addInfor(PhoneInfor info) {
-		pBook[cnt] = info;
+		//pBook[cnt] = info;
+		pBook.add(info);
 		cnt++;
 	}
 	
@@ -40,17 +53,17 @@ public class PhoneBookManager {
 		
 		// 100개 입력 
 		// 배열의 개수와 입력된 요소의 개수를 비교
-		if(pBook.length == cnt) {
-			System.out.println("더이상 정보를 저장할 수 없습니다. ");
-			System.out.println("일부 정보를 삭제하고 저장 공간을 확보해 주세요.");
-			return;
-		}
-		
+//		if(pBook.length == cnt) {
+//			System.out.println("더이상 정보를 저장할 수 없습니다. ");
+//			System.out.println("일부 정보를 삭제하고 저장 공간을 확보해 주세요.");
+//			return;
+//		}
+//		
 		System.out.println("어떤 정보를 입력하시겠습니까?");
 		//System.out.println("1. 기본"); 기본은 무조건 받기로 했으므로 제외 
 		System.out.println(Menu.UNIV + ". 대학");
 		System.out.println(Menu.COM + ". 회사");
-		System.out.println(Menu.CAFE + ". 동호회");
+		System.out.print(Menu.CAFE + ". 동호회 \n>>");
 		
 		int select = 0; 
 		
@@ -60,9 +73,9 @@ public class PhoneBookManager {
 			System.out.println("숫자로 입력해주세요. >> ");		
 		}
 		
-		Util.sc.nextLine();
+		//Util.sc.nextLine();
 		
-		if(!(select>0 && select <4)) {
+		if(!(select >= Menu.UNIV && select <= Menu.CAFE)) {
 			System.out.println("메뉴 선택이 올바르지 않습니다.");
 			System.out.println("초기 메뉴로 이동합니다. ");
 			return;
@@ -128,7 +141,7 @@ public class PhoneBookManager {
 		int index = -1; // 정보가 없을때
 		
 		for(int i=0; i < cnt; i++) {
-			if(pBook[i].getName().equals(name)) {
+			if(pBook.get(i).equals(name)) {
 				index = i;
 			}
 		}
@@ -155,7 +168,7 @@ public class PhoneBookManager {
 			System.out.println("메뉴로 돌아갑니다.");
 		} else {
 			System.out.println("검색 결과 ----------------------");
-			pBook[index].showInfo();
+			pBook.get(index).showInfo();
 		}
 	}
 	
@@ -171,10 +184,11 @@ public class PhoneBookManager {
 			System.out.println("메뉴로 이동합니다.");			
 		} else {
 			// 배열의 요소를 왼쪽으로 시프트 
-			for(int i = index; i< cnt-1; i++) {
-				pBook[i] = pBook[i+1];				
-			}
-			cnt--;
+//			for(int i = index; i< cnt-1; i++) {
+//				pBook[i] = pBook[i+1];				
+//			}
+//			cnt--;
+			pBook.remove(index);
 			System.out.println("요청하신 이름의 정보를 삭제하였습니다.");
 		}
 		
@@ -190,7 +204,7 @@ public class PhoneBookManager {
 			
 		System.out.println("전체 정보를 출력합니다.==========================");
 		for(int i = 0; i < cnt; i++) {
-			pBook[i].showInfo();
+			pBook.get(i).showInfo();
 			System.out.println("---------------------------");
 		}
 		

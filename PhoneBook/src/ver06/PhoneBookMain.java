@@ -1,7 +1,6 @@
 package ver06;
 
 import java.util.InputMismatchException;
-
 import ver03.Util;
 
 public class PhoneBookMain {
@@ -18,19 +17,19 @@ public class PhoneBookMain {
 			System.out.println(Menu.INFO_LIST + ". 모든 정보 출력");
 			System.out.println(Menu.EXIT + ". EXIT");
 			System.out.println("=====================================");
-			System.out.println("\n>> ");	
+			System.out.print("\n>> ");	
 
 			int select = 0;
 			try {
-				//select = Util.sc.nextInt();
-				select = Integer.parseInt(Util.sc.nextLine().trim());
-				
+				select = Util.sc.nextInt();
 			// 숫자가 아닌경우 예외	
-			}catch(NumberFormatException e) {
-				System.out.println("숫자로 입력해주세요. >> ");				
+			} catch(InputMismatchException e) {
+				System.out.println("잘못된 메뉴 입력입니다. \n 다시 선택해주세요.");
+				Util.sc.nextLine();
+				continue;	
 			}
 			
-			if(!(select > 0 && select < 6)) {
+			if(!(select >= Menu.INSERT && select <= Menu.EXIT)) {
 				System.out.println("메뉴의 선택이 올바르지 않습니다. \n다시 선택해주세요.");
 				continue;
 			}

@@ -1,5 +1,7 @@
 package ver06;
 
+import java.util.ArrayList;
+
 public class CafePhoneInfor extends PhoneInfor {
 	// 동호회 이름, 닉네임 
 	private String cafeName;
