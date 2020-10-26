@@ -1,6 +1,6 @@
-package ver06;
+package ver06_sujin;
 
-public abstract class PhoneInfor implements Infor {
+public class PhoneInfor {
 	
 	// 친구의 이름, 전화번호, 주소, 이메일
 	// 캡슐화 : 정보은닉(변수의 직접 접근을 제한 - 변수를 보호)
@@ -50,7 +50,6 @@ public abstract class PhoneInfor implements Infor {
 	
 	// 정보 출력 기능 (public : 변수는 직접 접근을 하지 못하도록 하지만 외부에서 메서드는 직접 접근 해야하므로 )
 	// 하위 클래스에서 오버라이딩 하는 목적 
-	@Override
 	public void showInfo() {
 		System.out.println("이름  : " + name);
 		System.out.println("전화번호 : " + phoneNum);
@@ -58,7 +57,8 @@ public abstract class PhoneInfor implements Infor {
 		System.out.println("이메일 : " + email);
 		
 	}
-	
-	// 추상 메서드 void showBasicInfor()를 멤버로 가진다. 
 
+	public void showBasicInfor() {
+		showInfo();		
+	}
 }

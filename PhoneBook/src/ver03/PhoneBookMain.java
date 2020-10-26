@@ -1,8 +1,8 @@
 package ver03;
 
-//import java.util.Scanner;
+//import java.SCanner;
 
-public class PhoneBookMain {
+public class PhoneBookMain implements Util {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -24,7 +24,7 @@ public class PhoneBookMain {
 			System.out.println("5. 프로그램 종료");
 			System.out.println("=====================================");
 			
-			char insertMenu = Util.sc.nextLine().charAt(0);
+			char insertMenu = SC.nextLine().charAt(0);
 			
 			switch(insertMenu) {
 				case '1' :

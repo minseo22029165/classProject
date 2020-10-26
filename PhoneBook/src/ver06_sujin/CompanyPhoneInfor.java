@@ -1,4 +1,4 @@
-package ver06;
+package ver06_sujin;
 
 public class CompanyPhoneInfor extends PhoneInfor {
 	// 회사이름
@@ -28,6 +28,6 @@ public class CompanyPhoneInfor extends PhoneInfor {
 	
 	@Override
 	public void showBasicInfor() {
-		super.showInfo();
+		super.showInfo();		
 	}	
 }

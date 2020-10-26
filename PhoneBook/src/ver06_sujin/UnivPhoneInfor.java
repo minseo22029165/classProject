@@ -1,4 +1,4 @@
-package ver06;
+package ver06_sujin;
 
 public class UnivPhoneInfor extends PhoneInfor {
 	// 대학친구 : 전공, 학년
@@ -39,8 +39,6 @@ public class UnivPhoneInfor extends PhoneInfor {
 
 	@Override
 	public void showBasicInfor() {
-		super.showInfo();
+		super.showInfo();		
 	}
-
-
 }

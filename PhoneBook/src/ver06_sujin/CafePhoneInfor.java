@@ -1,4 +1,6 @@
-package ver06;
+package ver06_sujin;
+
+import java.util.ArrayList;
 
 public class CafePhoneInfor extends PhoneInfor {
 	// 동호회 이름, 닉네임 
@@ -38,6 +40,6 @@ public class CafePhoneInfor extends PhoneInfor {
 
 	@Override
 	public void showBasicInfor() {
-		super.showInfo();
-	}	
+		super.showInfo();		
+	}
 }
