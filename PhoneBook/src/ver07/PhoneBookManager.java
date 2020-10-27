@@ -1,5 +1,11 @@
-package ver06;
+package ver07;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -22,6 +28,9 @@ public class PhoneBookManager implements Util {
 //		cnt = 0;
 		// List<PhoneInfor> 초기화
 		pBook = new ArrayList<PhoneInfor>();
+		
+		// 파일에서 인스턴스들을 로드 해야함 pBook에다가 넣어줘야함 
+		load();
 	}
 	
 	// 내부에서 인스턴스 생성 (static이 없으면 manager 변수 자체가 만들어 지지 않는다!!!!!!!)
@@ -193,4 +202,68 @@ public class PhoneBookManager implements Util {
 		}
 		
 	}
+	
+	// List:pBook 에 저장되어있는 인스턴스들을 저장 
+	public void save() {
+		if(pBook.size() == 0) {
+			System.out.println("저장된 데이터가 없어 파일의 저장이 되지 않습니다.");
+			return;
+		}
+		
+		// 인스턴스를 저장할 수 있는 출력 스트림 생성 
+		try {
+			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("phonebook.ser"));
+			
+//			for(PhoneInfor pi : pBook) {
+//				out.writeObject(pi);
+//			}
+			
+			// 이렇게 통채로 저장 가능 
+			out.writeObject(pBook);
+			
+			out.close();
+			System.out.println("저장 되었습니다.(phonebook.ser)");
+		} catch (IOException e) {
+			System.out.println("저장하는 과정에 오류가 발생했습니다.(" + e.getMessage() + ") \n다시 시도해 주세요.");
+		}
+		
+	}
+	
+	// 프로그램으로 파일의 저장 데이터를 로드하는 메서드 생성 
+	void load() {
+		// 파일 존재 여부 확인 : File 클래스 이용 
+		File file = new File("phonebook.ser");
+		
+		if(!file.exists()) {
+			System.out.println("저장된 파일이 존재하지 않습니다. 파일 저장 후 load 됩니다.");
+		}
+		
+		// 파일에 있는 데이터를 메모리에 저장 :pBook에 저장
+		// 파일의 데이터를 읽을 수 있는 스트림 생성 
+		try {
+			ObjectInputStream in = new ObjectInputStream(new FileInputStream("phonebook.ser"));
+			
+//			while(true) {
+//				Object obj = in.readObject();
+//				// 다 읽어 왔으면 break;
+//				if(obj == null) {
+//					break;
+//				}
+//				pBook.add((PhoneInfor) obj);				
+//			}
+			
+			// 위처럼 하지 않고 아예 리스트에 넣어주면 끝
+			pBook = (List<PhoneInfor>)in.readObject();  
+			
+			System.out.println("데이터 로드 완료............");
+		} catch (IOException e) {
+			//System.out.println("데이터를 로드하는 과정에 오류가 발생했습니다.");
+			//e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			System.out.println("데이터를 로드하는 과정에 오류가 발생했습니다.");
+			e.printStackTrace();
+		}
+		
+	}
+	
 }
