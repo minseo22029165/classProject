@@ -20,7 +20,7 @@ public class CalcuratorMain {
 			e.printStackTrace();
 		}
 		
-		System.out.println("연산의 횟수 : " + cal.opCnt);
+		System.out.println("연산의 횟수 : " + (cal.opPlusCnt + cal.opMinCnt));
 
 	}
 
