@@ -31,6 +31,8 @@ public class PhoneBookManager implements Util {
 		
 		// 생성자 호출할때 파일 불러오기
 		read();
+		
+		
 	}
 	
 	// 내부에서 인스턴스 생성 (static이 없으면 manager 변수 자체가 만들어 지지 않는다!!!!!!!)
