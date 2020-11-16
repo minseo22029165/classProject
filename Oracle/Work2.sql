@@ -12,17 +12,21 @@ SELECT bookname
   FROM Book
  WHERE price >= 20000;
 /*
-(3) 박지성의총구매액(박지성의고객번호는1번으로놓고작성)
+(3) 박지성의총구매액
 */
 SELECT SUM(saleprice)
   FROM Orders
- WHERE custid = 1;
+ WHERE custid = (SELECT CUSTID 
+                   FROM CUSTOMER
+                  WHERE NAME = '박지성');
 /*
-(4) 박지성이구매한도서의수(박지성의고객번호는1번으로놓고작성)
+(4) 박지성이구매한도서의수
 */
 SELECT COUNT(*)
   FROM Orders
- WHERE custid = 1; 
+ WHERE custid = (SELECT CUSTID 
+                   FROM CUSTOMER
+                  WHERE NAME = '박지성');
 /*
 ​
 2 마당서점의운영자와경영자가요구하는다음질문에대해SQL 문을작성하시오.

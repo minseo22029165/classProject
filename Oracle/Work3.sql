@@ -6,7 +6,7 @@ SELECT ENAME, SUBSTR(HIREDATE, 1, 5)
 /*
 17. SUBSTR 함수를 사용하여 4월에 입사한 사원을 출력하시오.
 */
-SELECT ENAME, HIREDATE
+SELECT *
   FROM EMP
  WHERE SUBSTR(HIREDATE, 4, 2) = '04';
 /*
@@ -18,7 +18,7 @@ WHERE MOD(EMPNO, 2) = 0;
 /*
 19. 입사일을 년도는 2자리(YY), 월은 숫자(MM)로 표시하고 요일은 약어 (DY)로 지정하여 출력하시오.
 */
-SELECT SYSDATE, TO_CHAR(SYSDATE, 'YY MM DY')
+SELECT SYSDATE, TO_CHAR(HIREDATE, 'YY MM DY')
   FROM EMP;
 /*
 20. 올해 몇 칠이 지났는지 출력하시오. 현재날짜에서 올해 1월 1일을 뺀 결과를 출력하고 TO_DATE 함수를 사용하여 데이터 형을 일치 시키시오.
