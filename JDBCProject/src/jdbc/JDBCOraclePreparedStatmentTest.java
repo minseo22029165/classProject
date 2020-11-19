@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
-public class JDBCOraclePreparedStatmentsTest {
+public class JDBCOraclePreparedStatmentTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

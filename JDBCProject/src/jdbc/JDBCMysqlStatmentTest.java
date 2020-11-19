@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
-public class JDBCOracleStatments {
+public class JDBCMysqlStatmentTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -18,13 +18,13 @@ public class JDBCOracleStatments {
 		
 		try {
 			// 1. 드라이버 로드
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			System.out.println("Oracle Driver Load!!!");
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			System.out.println("Mysql Driver Load!!!");
 			
 			// 2. db 연결
-			String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:orcl";
-			String user = "scott";
-			String password = "tiger";
+			String jdbcUrl = "jdbc:mysql://localhost:3306/project?serverTimezone=UTC";
+			String user = "bit";
+			String password = "bit";
 			
 			conn = DriverManager.getConnection(jdbcUrl, user, password);
 			
@@ -38,7 +38,7 @@ public class JDBCOracleStatments {
 			
 			
 			// 입력 : insert
-			String sqlInsert = "insert into dept values (SEQ_DEPT_DEPTNO.NEXTVAL, '" + userDname + "', '" + Loc + "')";
+			String sqlInsert = "insert into dept(deptno, dname, loc) values (50, '" + userDname + "', '" + Loc + "')";
 			
 			int resultCnt = stmt.executeUpdate(sqlInsert);
 			
