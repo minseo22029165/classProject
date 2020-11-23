@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 선택자</title>
+    <style>
+        /* 전체 선택자 : 전체의 폰트 및 컬러값을 지정가능 */
+        * {
+            /*color: red;*/
+        }
+        
+        h1, p, body {
+            /*
+            margin: 0px;
+            padding: 0px;          
+            */
+        }
+        
+        h1 {
+            background-color: aqua;
+        }
+
+        p {
+            color: blue;
+            background-color: antiquewhite;
+        }
+        
+        div {
+            height: 50px;
+        }
+        
+        form{
+            border: 1px solid black;
+        }
+        
+        ul{
+            border: 1px solid blue;
+        }
+        
+        li{
+            border: 1px solid red;
+        }
+        
+        /* 아이디 선택자 : #아이디 */
+        #header {
+            background-color: cadetblue;
+            
+        }
+        
+        #aside {
+            background-color: blueviolet;
+            
+        }
+        
+        #content {
+            background-color: brown;
+        }
+        
+        /* 클래스 선택자 : 요소에 class 속성이 있는것을 지정하는 선택자 : .클래스명 */
+        div.color_write {
+            color : white;
+        }
+        
+        /* 태그 상관없이 범용 */
+        .color_w {
+            color : white;
+        }
+        
+        .font_size_32 {
+            font-size: 32px;
+        }
+        
+        .font_weight_bold {
+            font-weight: bold;
+        }
+        
+        .font_itaslic {
+            font-style: italic;
+        }
+        
+        /* 속성 선택자 : 선택자[속성이름] */
+        input[type] {
+            background-color: darkgreen;
+            color : darkblue;
+        }
+        
+        /* 속성 선택자 : 선택자[속성이=값] */
+        input[type=button] {
+            background-color:coral;
+            padding: 10px;  
+            margin: 10px;
+            font-size: 32px;
+            font-weight: bold;
+        }    
+        
+        /* 속성 선택자 : 선택자[속성이름$=값] : 특정값으로 끝나는 속성*/
+        img[src$=png] {
+            border: 3px solid red;
+        }
+        img[src$=jpg] {
+            border: 5px solid blue;
+        }
+        img[src$=gif] {
+            border: 10px solid yellow;
+        }        
+        
+        /* 후손 선택자 : 선택자a 선택자b 
+           a태그 하위에 존재하는 테그를 기준으로 b선택자로 선택        
+        */
+        
+        /* header1 안에 있는 h1 */
+        #header1 h1 {
+            background-color: black;
+            color : aliceblue;
+            font-size: 16px;
+            
+        }
+        
+        /* 자손 선택자 : 선택자a > 선택자b 
+           선택자 a로 선택된 테그 바로 아래의 테그들 중 선택자b로 선택
+        */        
+        #header1 > h1 {
+            border: 5px solid gray;
+            font-style: italic;
+    
+        }
+        
+        /* 동위 선택자 : 범위를 한정해서 선택
+           선택자A + 선택자 B 선택자A 바로 뒤에 위치하는 선택자B를 선택
+        */  
+        #div1 > h1 + h2{
+            background-color:fuchsia;
+            color: yellow;
+        }
+     
+        /* 선택자A ~ 선택자 B 선택자A 뒤에 위치하는 선택자B를 선택
+        */         
+        #div1 > h1 ~ h2{
+            background-color:black;            
+        }
+        
+        /* 반응 선택자 
+        hover : 마우스 커서가 특정 테그 위에 올라갈때 
+        active : 마우스 버튼을 누르고 있는 상태
+        */         
+        #div1 h1:hover {
+            background-color: yellow;
+            color: fuchsia;
+            cursor : pointer;
+        }
+        
+        #div1 h1:active {
+             background-color: blueviolet;
+            color: white;
+            cursor : pointer;           
+        }
+        
+        /* 상태 선택자 
+        checked  : checkbox, radio
+        focus : input
+        enabled : 사용가능한 input
+        disabled : 사용불가능한 input
+        */
+        #div2 input:enabled{
+            border: 1px solid blue;
+            background-color: red;
+        }
+        #div2 input:disabled{
+            border: 1px solid red;
+            background-color: darkgray;
+        }   
+        #div2 input:focus{
+            background-color: yellow;
+        }
+        
+        #msg {
+            padding: 20px;
+            background-color: bisque
+        }
+        
+        /* 체크박스 체크된 input박스 바로 뒤에 있는 div 안보이게 */
+        input[type=checkbox]:checked + #msg {
+            display: none;
+        }
+        
+        #navi, #navi>li {
+            border: 0px;
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+        
+       #navi {
+           overflow: hidden;
+        }
+        
+        #navi>li {
+            float: left;
+            padding: 0 10px;
+        }
+        
+        #navi>li:first-child {
+            background-color: aqua;
+            border-radius: 10px 0 0 10px;
+        }
+        
+        #navi>li:last-child {
+            background-color: aqua;
+            border-radius: 0 10px 10px 0;
+        }  
+        
+        /* 짝수 child */
+        #navi>li:nth-child(2n) {
+            background-color: aqua;
+        }  
+        
+        /* 홀수 child */
+        #navi>li:nth-child(2n+1) {
+            background-color: aquamarine;            
+        }          
+        
+        /* 문자 선택자 
+            ::first-letter : 첫번째 문자하나 크게 처리 
+            ::first-line : 첫번째 라인 크게 처리 
+            ::selection : 마우스로 드레그 하면 폰드컬러랑 백그라운드 색이 바뀜
+        */
+        #first_p::first-letter {
+            font-size: 300%;  /* 16px * 3*/
+        }
+        
+        #first_p::first-line {
+            background-color: aqua;
+        }
+
+        #first_p::selection {
+            background-color: black;
+            color: darkmagenta;
+        }
+
+        /* 링크 선택자 
+            :link : 첫번째 문자하나 크게 처리 
+            :visited : 첫번째 라인 크게 처리    
+        */        
+        #h3_atag a:link {
+            color: darkgoldenrod;
+        }
+        
+        #h3_atag a:visited {
+            color:darkorange;
+            text-decoration: line-through;
+        }   
+        #h3_atag a:hover {
+            color:crimson;
+        } 
+        
+        #h3_atag a:link::before {
+            content: '(' attr(href) ')';
+        }         
+        #h3_atag a:link::after {
+            content: '-' attr(href);
+        }             
+    </style>
+</head>
+
+<body>
+    <h3 id="h3_atag">
+        <a href="http://www.naver.com">네이버</a>
+    </h3>
+    <!--
+    <p id="first_p">
+        "언론사주 회동 조사해야" vs "서면질의 시 성실 답변"<br>
+        秋 "지위고하 성역 없어"…'대면조사' 강행 움직임<br>
+        尹 일선 검사들과 만남…관련 메시지 주목<br>
+    </p>    
+    
+    
+    <ul id="navi">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+    </ul>
+    <div id="div3">
+        숨기기<input type="checkbox">
+        <div id="msg">
+            체크박스를 체크하시면 글이 사라집니다.
+        </div>
+        <br>
+    </div>    
+    
+
+    <div id="div1">
+        <h1>Header - 1</h1>
+        <h2>Header - 2</h2>
+        <h2>Header - 2</h2>
+        <h2>Header - 2</h2>
+        <h2>Header - 2</h2>
+    </div>
+    
+    <div id="div2">
+        <input>
+        <input disabled>
+    </div>
+    
+    <div id="header1">
+        <h1 class="title">Lorem ipsum</h1>
+        <div id="nav">
+            <h1>Navigation</h1>
+        </div>
+    </div>
+    <div id="section">
+         <h1 class="title">Lorem ipsum</h1>
+         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+
+    <h1>form tag -> input</h1>
+    <form>
+        <ul>
+            <li>
+                <input type="text">
+            </li>
+            <li>
+                <input type="button" value="Button">
+            </li>            
+            <li>
+                <input type="password" value="Button">
+            </li>     
+            <li>
+                <input type="button" value="새로운버튼">
+            </li>                 
+        </ul>
+    </form>
+    
+    <div id="header" class="color_w font_size_32 font_weight_bold font_itaslic" >header</div>
+    <div id="aside" class="color_write">aside</div>
+    <div id="content" class="color_write">content</div>
+    
+    <h1>추미애 '윤석열 대면조사' 재시도 vs 尹 묵묵히 '마이웨이'</h1>
+    <p>
+        "언론사주 회동 조사해야" vs "서면질의 시 성실 답변"<br>
+        秋 "지위고하 성역 없어"…'대면조사' 강행 움직임<br>
+        尹 일선 검사들과 만남…관련 메시지 주목<br>
+    </p>
+    
+    
+    <img src="images/flower.gif" height="100px">
+    <img src="images/coco.jpg" height="100px">
+    <img src="images/car.png" height="100px">    
+    -->
+</body>
+</html>
