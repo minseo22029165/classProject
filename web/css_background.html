@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body{
+            background-image: url(images/flower.gif);
+            /*background-size: 50%;*/
+            
+            background-repeat:no-repeat;
+            /*  배경 이미지 화면에 고정시키기 : 스크롤을 이동해도 배경 이미지가 고정*/
+            background-attachment: fixed;
+            background-position: bottom right;
+        }
+        
+        div {
+            height: 300px;
+            background-color: azure;
+            background-image: url(images/sky.jpg);
+            /* contain : 크기를 조정해도 이미지가 늘어나지 않음, cover or 100% : 이미지가 크기 조정에 따라 늘어나는거 */
+            background-size: contain;
+            /* no-repeat : 한번만 출력, repeat : 계속 출력, repeat-x : x축으로만 계속나옴, repeat-y : y축으로만 계속 나옴*/
+            background-repeat:repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+    
+    </div>
+</body>
+</html>

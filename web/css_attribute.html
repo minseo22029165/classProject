@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <style>
+        // 1번째 div에 레드
+        #size1>div:nth-child(1){
+            color:red;
+            font-size: 100%;
+        }
+        
+        #size1>div:nth-child(2){
+            font-size: 150%;
+        }
+        
+        #size1>div:nth-child(3){
+            font-size: 300%;
+        }   
+        
+        #size2>div:nth-child(1){
+            color:red;
+            font-size: 1.0em;
+        }
+        
+        #size2>div:nth-child(2){
+            font-size: 1.5em;
+        }
+        
+        #size2>div:nth-child(3){
+            font-size: 2.0em;
+        } 
+        
+        #color>h4:nth-child(1){
+            background-color: aquamarine;
+            color: blue;
+        }
+        
+        #color>h4:nth-child(2){
+            background-color: rgb(123,123,123);
+            color: rgb(255,0,0);
+        }
+        
+        #color>h4:nth-child(3){
+            font-size: 2.0em;
+        }       
+        #color>h4:nth-child(4){
+            background-color: #ff12ff;
+            color : #f555512;
+        }    
+        
+        body{
+            /*background-image: url(images/flower.gif);*/
+        }
+        
+        /* 박스 속성 : width, height, border, padding, margin */
+        #box1 {
+            background-color: blueviolet;
+            width: 100px;
+            height: 100px;
+            
+            border : 10px solid chartreuse;
+            
+            /* 테두리와 텍스트 사이의 간격*/
+            padding: 10px;
+            margin: 10px;
+        }
+        
+        #box2{
+            background-color: cadetblue;
+            width: 100px;
+            height: 100px;
+            
+            border : 5px solid blue;
+            border-radius: 10px;
+
+            padding: 10px;
+            margin: 10px;            
+        }
+        
+        #display span {
+            background-color: burlywood;
+            width: 100px;
+            height: 100px;
+                
+        }
+        
+        #display>span:nth-child(1) {
+            
+        }
+        #display>span:nth-child(2) {
+            /* 두번째 span이 블록 속성(처음부터 끝까지의 영역을 잡음)이 되어버려서 전체를 가져버림 */
+            /*display: block;*/
+            display: inline;
+        }
+        #display>span:nth-child(3) {
+            
+        }   
+        
+        #font{
+            font-family: 'Jua', sans-serif;
+            font-size: 3em;
+            font-style:italic;
+            color:brown;
+            
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <h1 class="title">폰트 관련 속성</h1> 
+    <div id="font">
+        안녕하세요 반갑습니다.    
+    </div>    
+   
+    <h1 class="title">display 속성 : name, block, inline, inline-block</h1> 
+    <div id="display">
+        <span>span1</span>
+        <span>span2</span>
+        <span>span3</span>    
+    </div> 
+    
+    <h1>div : 박스</h1> 
+    <div> 
+        <div id="box2">
+                BOX BOX BOX BOX BOX BOX 
+        </div>        
+        <div id="box1">
+                BOX BOX BOX BOX BOX BOX 
+        </div>
+    </div>
+    
+    <h1>font-size : 단위를 확인</h1> 
+    <div id="size1">
+        <div>font-size : 100%</div>
+        <div>font-size : 150%</div>
+        <div>font-size : 200%</div>
+    </div>
+    <br>
+    <div id="size2">
+        <div>font-size : 100%</div>
+        <div>font-size : 150%</div>
+        <div>font-size : 200%</div>
+    </div>    
+    
+    <div id="color">
+        <h4>키워드를 이용한 색상 표현</h4>
+        <h4>rgb(r,g,b)를 이용한 색상 표현</h4>
+        <h4>rgba(r,g,b,a)를 이용한 색상 표현</h4>
+        <h4>rgba(r,g,b,a)를 이용한 색상 표현</h4>
+    </div>
+</body>
+</html>
