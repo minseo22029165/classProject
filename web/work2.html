@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="work2.css" rel="stylesheet">
+    <style>
+        *{
+            /*background-color: #aaa;                */
+        }
+        #wrap{
+            width: 500px;
+            border: 1px solid #aaa;
+            margin: 100px auto;
+            background-image: url(images/m_logo_naver.png);
+            background-size: 180px;
+            background-repeat: no-repeat;
+            background-position: center;           
+            
+        }    
+        
+        #header{
+            height: 150px;
+        }
+        
+        .lang{
+            position: relative;
+            right: 10px;
+            text-align: right;
+        }
+        
+        #logo{
+            border: 1px solid #aaa;
+        }
+        
+        #logo>h1{
+            position: absolute;
+            top: 130px;
+            left: 270px;
+            width: 200px;
+            height: 40px;
+            
+        }
+      
+        #logo>h1>a>div{
+            /*border: 1px solid #aaa;*/
+            width: 200px;
+            height: 40px;
+        }        
+        
+        a {
+            text-decoration: none;
+        }
+        
+
+        
+        
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="header">
+            <div class="lang">
+                <select id="langSelect" class="sel">
+                    <option value="ko_KR">한국어</option>
+                    <option value="en_US">English</option>
+                    <option value="zh-Hans_CN">中文(简体)</option>
+                    <option value="zh-Hant_TW">中文(台灣)</option>
+                </select>
+            </div>
+            <div id="logo">
+                <h1>
+                    <a href="http://www.naver.com"><div></div></a>  
+                </h1>                
+            </div>
+
+        </div>
+        <div id="content">
+            dsfedsfsdfsdfdsf
+            
+            
+        </div>
+    </div>
+    
+</body>
+</html>

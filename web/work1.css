@@ -1,0 +1,115 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Nanum Gothic', sans-serif;
+    
+}
+
+#wrap {
+    border: 5px solid darkgray;
+    width: 1000px;
+    /* 상하 20px 좌우는 auto */
+    margin: 20px auto;
+    
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px #DDD;    
+}
+
+div {
+    /*text-align: center;*/
+    margin: 10px;
+
+}
+
+#header {
+    padding: 20px;
+    width: 980px;
+    height: 50px;
+}
+
+#navi_wrap {
+    width: 980px;
+    height: 35px;
+
+    border-top: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
+}
+
+#content {
+    width: 730px;
+    float: left;
+}
+
+#aside {
+    width: 230px;
+    height: 300px;
+
+    float: left;
+}
+
+#footer {
+    clear: both;
+    width: 730px;
+    height: 30px
+}
+
+#navi_wrap,
+#navi > li {
+    list-style: none;
+}
+
+#navi_wrap {
+    padding-top: 5px;
+    overflow: hidden;
+}
+
+#navi > li {
+    float: left;
+    padding: 5px 10px;
+}
+
+#content > h2 {
+    padding: 30px 10px 10px 10px;
+}
+
+#content > h6,
+p {
+    padding: 5px 10px 20px 10px;
+}
+
+#aside > h4 {
+    padding: 10px 10px;
+}
+
+#navi > li {
+    padding: 5px 20px;
+    list-style: none;
+}
+
+.cate > li {
+    padding: 2px 20px;
+    color: darkgray;
+    font-size: 12px;
+    list-style: none;
+}
+
+#search {
+    position: relative;
+    right: 10px;
+    top: 5px;
+    text-align: right;
+}
+
+#textbox {
+    border: 1px solid darkgray;
+    border-radius: 10px 0 0 10px;
+    width: 150px;
+    height: 20px;
+}
+
+#button {
+    border: 1px solid darkgray;
+    border-radius: 0 10px 10px 0;
+    width: 50px;
+    height: 22px;
+}

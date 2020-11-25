@@ -16,35 +16,91 @@
             left: 50px;
         }
         
+        #circle1>a:hover {
+            background-color:darkorchid;
+            color:darkorange;
+            background-image: url(images/siba1.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
         #circle2 {
             background-color: mediumblue;
             bottom: 50px;
             left: 50px;
         }
+        #circle2>a:hover {
+            background-color:darkorchid;
+            color:darkorange;
+            background-image: url(images/shiba1.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+                
         #circle3 {
             background-color: mediumaquamarine;
             top : 50px;
             right: 50px;
         }
+        #circle3>a:hover {
+            background-color:darkorchid;
+            color:darkorange;
+            background-image: url(images/siba2.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+                
         #circle4 {
             background-color: mediumorchid;
             bottom: 50px;
             right: 50px;
         }
-        
+        #circle4>a:hover {
+            background-color:darkorchid;
+            color:darkorange;
+            background-image: url(images/siba.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+                
         .circle {
             width: 150px;
             height: 150px;
             border-radius: 100px;
             position: absolute;
+            
+            margin: 100px;
+            text-align: center;
+            /* height값이랑 같이 맞춰주면 세로 중앙에 문자 정렬 */
+            line-height: 150px;            
         }
+        
+        .circle>a {
+            font-size: 3em;
+            font-weight: bold;
+            /* 링크 언더라인 빼기 */
+            text-decoration: none;
+            color: white;
+            /*font-style: italic;*/
+            
+            display: block;
+            border-radius: 100px;            
+        }        
     </style>
 </head>
 
 <body>
-    <div id="circle1" class="circle"></div>    
-    <div id="circle2" class="circle"></div>    
-    <div id="circle3" class="circle"></div>    
-    <div id="circle4" class="circle"></div>        
+    <div id="circle1" class="circle">
+        <a href="#">Click</a>
+    </div>    
+    <div id="circle2" class="circle">
+        <a href="#">Click</a>
+    </div>    
+    <div id="circle3" class="circle">
+        <a href="#">Click</a>
+    </div>    
+    <div id="circle4" class="circle">
+        <a href="#">Click</a>
+    </div>        
 </body>
 </html>
