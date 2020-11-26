@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+    
+        // 함수 정의 방법 두가지
+        var func = function(){
+            alert('변수 func에 정의한 함수');
+        }
+        
+        function fn(){
+            alert('이름을 명시적으로 정의한 함수');
+        }
+        
+        //alert(typeof(func()));
+        
+        // arguments 객체를 사용한 가변 인자 함수
+        function sumAll(){
+            var result = 0;
+            for(var i = 0 ; i< arguments.length; i++){
+                result += arguments[i];
+            }
+            return result;
+        }
+        
+        //alert(sumAll(1,2,3,4,5));
+        
+        // 콜백함수 
+        function callTenTimes(callback, num){
+            for(var i=0; i<num; i++){
+                callback();
+            }
+        }
+        
+        var f1 = function(){
+            console.log('callback function call!!');
+        }
+        
+        // 함수 열번 호출
+        //callTenTimes(f1, 10);
+        
+        //parseInt , parseFloat
+        alert(parseInt('1000원'));  // 일케하면 숫자만 넣어줌 
+        
+        
+    </script>
+</head>
+
+<body>
+    <script>
+        var intervarlId = setInterval(function(){ var html = '<h1>' + new Date() + '</h1>'; document.body.innerHTML = html;}, 1000);
+    
+        // setTimeOut(); 특정시간이 지나면 함수를 한번 실행 
+        setTimeout(function(){clearInterval(intervarlId)}, 10*1000);
+    </script>    
+</body>
+</html>

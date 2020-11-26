@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work1</title>
+    <script>
+        //prompt 쓰기 
+        //숫자변환 number 해주기
+        //nan 나오면 if 로 분기해서 쓰기
+
+        // 사용자에게 숫자를 입력 받아 양수, 0, 음수를 구분하는 프로그램
+        var userNum = prompt('[양수, 0, 음수를 구분] 숫자를 입력해주세요.'); 
+        
+        //if(isNaN(Number(userNum))) {
+        if(!(Number(userNum))) {  
+            alert('입력값을 확인해주세요.');       
+        } else {                 
+            if(userNum > 0) {
+                alert('양수 입니다.');
+            } else if( userNum < 0) {
+                alert('음수 입니다.');
+            } else {
+                alert('0 입니다.');
+            }
+        }
+
+        // 사용자에게 숫자를 입력 받아 홀수와 짝수를 구분하는 프로그램    
+        var userNum = prompt('[홀수와 짝수를 구분] 숫자를 입력해주세요.'); 
+        
+        //if(isNaN(Number(userNum))) {
+        if(!(Number(userNum))) {  
+            alert('입력값을 확인해주세요.');            
+        } else {
+            if(userNum % 2 == 0) {
+                alert('짝수 입니다.');
+            } else {
+              alert('홀수 입니다.');  
+            } 
+        }        
+    
+    </script>
+</head>
+
+<body>
+    
+</body>
+</html>

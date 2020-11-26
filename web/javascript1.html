@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+    
+        ul.no_style {
+            list-style: none;
+            
+        }
+    </style>
+    <script>
+        // 콘솔창에 찍어보기 
+        console.log(1+4);
+        
+        var num = 100; // 숫자
+        var str = 'String'; // 문자열
+        var bool = true; // 논리값
+        var func = function(){}; // 함수
+        var obj = {};  // 객체
+        
+        
+        console.log(num);
+        
+        console.log(typeof(num));
+        console.log(typeof(str));
+        console.log(typeof(bool));
+        console.log(typeof(func));
+        console.log(typeof(obj));
+        
+        //var check = confirm('삭제하시겠습니까?'); 
+        //console.log(check);
+        
+        // 유저 데이터 입력 --> 뒤에는 디폴트값 
+        //var userData = prompt('값을 입력해 주세요', 100);
+        //console.log(userData);
+        
+        // 거짓일때 로그찍는다.
+        var food = '짜장면';
+        (food>0) || console.log('음수입니다.');
+        (food<0) || console.log('양수입니다.');
+        // 진실일때 로그 찍는다.
+        (food<0) && console.log('음수입니다.');
+        (food>0) && console.log('양수입니다.');
+        
+
+        // 배열
+        var array = [123,'456',{}, function(){alert('test');}, true, [1,2,3,4,5]];
+        console.log(array);
+        
+        //for(var i=0; i<array.length; i++){
+        for(var i in array){
+            console.log(array[i]);
+        }
+    
+    </script>    
+</head>
+
+<body>
+    <script>
+        var name1 = '네이버';
+        var name2 = '카카오';
+        
+        var htmlStr = '';
+        htmlStr += '<ul class="no_style">\n';
+        htmlStr += '    <li>' + name1 + '</li>\n';
+        htmlStr += '    <li>' + name2 + '</li>\n';
+        htmlStr += '</ul>\n';    
+    
+        document.body.innerHTML = htmlStr;
+    </script>    
+</body>
+</html>
+<script>
+
+</script>   
