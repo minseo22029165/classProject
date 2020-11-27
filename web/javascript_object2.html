@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript Object</title>
+    <script>
+        
+        // 생성자 함수 
+        function Rectangle(w, h){
+            // 캡슐화를 위해 this대신 var를 사용 
+            //this.width = w;
+            //this.height = h;
+           
+            var width = w;
+            var height = h;
+            
+            // getter, setter 
+            this.getWidth = function(){
+                return width;
+            }
+            this.getHeight = function(){
+                return height;
+            }
+            this.setWidth = function(w){
+                width = w;
+            }
+            this.setHeight = function(h){
+                height = h;
+            }
+        }
+        
+        var rec = new Rectangle(10,20);
+        // 캡슐화 하였기때문에 값이 안나옴 
+        console.log(rec.height);
+        // 이경우 getter이용 
+        console.log(rec.getHeight());
+        // setter         
+        rec.setWidth(200);
+        rec.setHeight(100);
+        console.log(rec.getWidth());
+        console.log(rec.getHeight());
+        
+        // 배열 정렬
+        var arr = [11, 78, 574, 1, 100]
+        arr.sort();
+        arr.sort(
+            function(left, right){           
+                return left-right;
+            }   
+        );
+        document.write(arr);
+        
+    </script>
+</head>
+
+<body>
+    
+</body>
+</html>
