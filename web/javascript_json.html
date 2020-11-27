@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        var book = {
+            name:'first java',
+            price:25000,
+            publisher:'FIRST'
+        };
+        
+        // javascript object -> string (JSON 규격으로 만들어줌)
+        // JSON.stringify(javascript Object) : string (string ify -> 스트링이파이라고함)
+        var jsonStr = JSON.stringify(book);
+        
+        window.onload = function(){
+            document.getElementById('view').innerHTML = jsonStr;
+        }
+        
+        var student = {
+            name : 'king',
+            kor : 100,
+            eng : 100,
+            math : 100,
+            sum : function(){
+                return this.kor + this.eng + this.math;
+            },
+            avg : function(){
+                return this.sum() / 3;
+            }
+        };        
+        
+        document.write(JSON.stringify(student) + '<br>');
+        
+        var str = '{"name":"first java","price":25000,"publisher":"FIRST"}';
+        var obj = JSON.parse(str);
+        document.write(obj.name + ' '+ obj.price + ' '+ obj.publisher);
+
+
+    </script>
+</head>
+
+<body>
+    <h1 id="view"></h1>
+</body>
+</html>
