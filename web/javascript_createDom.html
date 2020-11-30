@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        window.onload = function(){
+            // 태그 요소 생성
+            var header = document.createElement('h1');
+            
+            // 텍스트 요소 생성
+            var textNode = document.createTextNode('안녕하세요.');
+            
+            // 태그 요소에 텍스트 요소 추가
+            header.appendChild(textNode);
+            
+            // 동적으로 생성한 새로운 문서객체를 바디요소에 추가
+            document.body.appendChild(header);
+            
+            // 텍스트가 없는 요소 : img
+            var img = document.createElement('img');
+            
+            img.width = '200';
+           
+            img.src = '/images/siba.png';
+            document.getElementById('title').appendChild(img);
+            header.appendChild(img);
+            
+            
+            var link = document.getElementById('link_naver');
+            
+            //textnode 생성 
+            var str = document.createTextNode('-' + link.getAttribute('href'));
+            link.appendChild(str);
+            
+            var img1 = document.createElement('img');
+            img1.setAttribute('src', '/images/siba1.png');
+            img1.setAttribute('width', 200);
+            document.body.appendChild(img1);
+            
+            var title = document.getElementById('title');
+            title.innerHTML = '<i>안녕하세요</i>';
+            
+            // html로 인식하는게 아니라 순수하게 문자열로 입력
+            title.textContent= '<i>안녕하세요</i>';
+        }
+    </script>
+</head>
+
+<body>
+    <h1 id='title'>새로운 문서객체를 추가합니다.</h1>
+    <a id = "link_naver" href="http://www.naver.com">네이버</a>
+</body>
+</html>
