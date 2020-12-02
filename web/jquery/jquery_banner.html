@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-   ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>   
+    <title></title>
+
+    <script>
+        $(document).ready(function(){
+            setInterval(function(){
+                // 첫번째 이미지를 3초마다 div맨뒤로 보내버림 
+                $('img').first().appendTo('div');
+            }, 3000);    
+        });
+    </script>
+    <style>
+        img{
+            width : 150px;
+            height: 150px;
+        }
+        
+        div{
+            width : 150px;
+            height: 150px;
+            border: 2px solid #ddd;
+            overflow: hidden;
+        }        
+    </style>    
+</head>
+
+<body>
+    <div>
+        <img src="../images/shiba1.jpg">
+        <img src="../images/siba.png">
+        <img src="../images/siba2.png">
+        <img src="../images/siba1.png">
+    </div>
+    
+</body>
+</html>
