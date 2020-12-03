@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-   ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>   
+    <title>이벤트 연결 범위 한정</title>
+    <style>
+        h1{
+            border: 1px solid #aaa;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+/*            
+           $('h1').click(function(){
+                var length = $('h1').length;
+                var html = $(this).html();
+               
+               $('#wrap').append('<h1>' + length + ' - ' + html + '</h1>');
+           });
+*/            
+            // 위와 다른점 : 위에 처럼 하면 새로 생긴 h1테그에 이벤트가 발생하지 않음, 새로추가하는 h1에도 같은 이벤트 적용하고 싶은경우 아래와 같이 한다 
+            // 범위를 지정하고 해당 범위안에 엘리먼트를 지정해서 이벤트 적용
+            // 해당 범위에 특정 엘리먼트가 추가되도 인벤트를 적용 
+            $('#wrap').on('click', 'h1', function(){
+                var length = $('h1').length;
+                var html = $(this).html();
+               
+               $('#wrap').append('<h1>' + length + ' - ' + html + '</h1>');
+            })
+        });
+    
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <h1>Header</h1>
+    </div>
+</body>
+</html>

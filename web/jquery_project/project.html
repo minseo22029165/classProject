@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Manager</title>
+    
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    
+    <!-- bootstrap START -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script> 
+    <!-- bootstrap END -->
+    
+    <link rel="stylesheet" href="default.css">
+    <script src="manager.js"></script>    
+</head>
+
+<body>
+
+    <!--해더 시작-->
+    <div>
+        <h1 class="header">Member Manager</h1>
+        <hr>
+    </div>
+    <!--해더 종료-->
+    
+    <!--회원가입 폼 시작-->
+    <div>
+        <h2 class="title">회원 정보 등록</h2>
+        <form id="regform" onsubmit="return regmember();">
+            <table>
+                <tr>
+                    <td>
+                        <label>아이디</label>
+                        <input type="text" name="userid" id="userid" required class="form-control">
+                        <div id="userid_msg" class="msg">공백 문자는 허용하지 않습니다.</div>
+                    </td>
+                    <td>
+                        <label>비밀번호</label>
+                        <input type="password" name="pw" id="pw" required class="form-control">
+                        <div id="pw_msg" class="msg">공백 문자는 허용하지 않습니다.</div>
+                    </td>
+                    <td>
+                        <label>비밀번호 확인</label>
+                        <input type="password" id="repw" required class="form-control">
+                        <div id="repw_msg" class="msg">비밀번호가 일치하지 않습니다.</div>
+                    </td>
+                    <td>
+                        <label>이름</label>
+                        <input type="text" name="username" id="username" required class="form-control">
+                        <div id="username_msg" class="msg">공백 문자는 허용하지 않습니다.</div>
+                    </td>
+                    <td>
+                        <input type="submit" value="등록" class="btn btn-outline-primary">                        
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <!--회원 가입 폼 종료-->
+
+    <!--회원 리스트 시작-->
+    <div>
+        <hr>
+        <h2 class="title">회원 리스트</h2>
+        <table class="table">
+            <tbody id="listrow" class="thead-dark">
+                <tr>
+                    <th>순번(index)</th>
+                    <th>아이디</th>
+                    <th>비밀번호</th>
+                    <th>이름</th>
+                    <th>관리</th>
+                </tr>   
+                              
+            </tbody>
+        </table>
+    
+    </div>
+    <!--회원 리스트 종료-->
+    
+    <div class="edit_div">
+        <div class="edit_for_header">
+            <h2>데이터 수정</h2>
+            <a href="javascript:editMemberClose();">닫기</a>
+        </div>
+        <hr>
+        <form id="editform" onsubmit="return editMemberData();">
+            <input type="hidden" name="index" id="index">
+            <table>
+                <tr>
+                    <td>
+                        <label for="">아이디(이메일)</label>
+                    </td>
+                    <td>
+                        <input type="text" 
+                               name="userid" 
+                               id="editid" required readonly class="form-control">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">비밀번호</label>
+                    </td>
+                    <td>
+                        <input type="password" 
+                               name="pw" 
+                               id="editpw" required class="form-control">
+                        <div id="editpw_msg" class="msg">필수 항목입니다.</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">비밀번호 확인</label>
+                    </td>
+                    <td>
+                        <input type="password" 
+                               id="editrepw" required class="form-control">
+                        <div id="editrepw_msg" class="msg">비밀번호가 일치하지 않습니다.</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">이름</label>
+                    </td>
+                    <td>
+                        <input type="text" 
+                               name="username" 
+                               id="editname" required class="form-control">
+                        <div id="editname_msg" class="msg">필수 항목입니다.</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="수정" class="btn btn-warning">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    
+    </div>
+    
+</body>
+    
+</html>
+

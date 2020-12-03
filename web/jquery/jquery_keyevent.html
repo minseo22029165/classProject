@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-   ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>   
+    <title></title>
+    <script>
+        $(document).ready(function(){
+            // 키보드 입력 이벤트 
+            $('textarea').keyup(function(){
+                // 현재 입력 문자열의 개수 
+                var inputStrLength = $(this).val().length;
+               
+                if(inputStrLength>50){
+                    alert('50자까지만 입력이 가능합니다.');
+                    
+                    var userInput = $(this).val().substr(0, 50);
+                    
+                    $(this).val(userInput);
+                    inputStrLength = 50;
+                }
+                $('span').text(inputStrLength);
+                
+            });
+            
+            // 체크박스 이벤트처리 : change메소드 사용
+            $('#check-all').change(function(){
+                if(this.checked){
+                    // 상태값 : prop 사용 
+                    $('#check-item').children().prop('checked', true);       
+                }else {
+                    $('#check-item').children().prop('checked', false);             
+                }
+                
+            });
+            
+                
+        }); 
+    </script>
+</head>
+
+<body>
+    
+    <input type="checkbox" id="check-all"><label for="check-all">전체선택</label>
+    <div id="check-item">
+        <input type="checkbox">게시물1<br>
+        <input type="checkbox">게시물2<br>
+        <input type="checkbox">게시물3<br>
+        <input type="checkbox">게시물4<br>
+        <input type="checkbox">게시물5<br>
+        
+    </div>
+    
+    <textarea rows="10" cols="30"></textarea>
+    <h1><span>0</span>/150</h1>
+    
+</body>
+</html>
