@@ -15,6 +15,7 @@
 	<h1>INDEX</h1>
 	<h1><a href="/FirstWeb/test/now.jsp">절대경로(/FirstWeb/test/now.jsp)</a></h1>
 	<h1><a href="test/now.jsp">상대경로(test/now.jsp)</a></h1>
+	<h1><a href="test/MsWord.jsp">test/MsWord.jsp</a></h1>
 
 </body>
 </html>
