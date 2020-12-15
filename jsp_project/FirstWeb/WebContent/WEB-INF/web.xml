@@ -8,9 +8,7 @@
   </welcome-file-list>
   
   <!-- 	서블릿 등록
-  		서블릿 이름, 서블릿 클래스의 풀네임 
-  
-  
+  		서블릿 이름, 서블릿 클래스의 풀네임  
    -->
    <servlet>
    		<servlet-name>nowServlet</servlet-name>
