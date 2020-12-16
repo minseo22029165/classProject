@@ -29,8 +29,6 @@
 				for(int i = 0 ; i < interests.length; i++){
 					out.println(interests[i] + "<br>");
 				}
-			
-			
 			%>
 		</td>
 	</tr>				

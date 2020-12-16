@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +8,8 @@
 <body>
 	<h1>Request Form</h1>
 	<hr>
-	<form action="requestResult.jsp" method="get">
+	<form action="result.jsp" method="get">
+	<!-- <form action="requestResult.jsp" method="get"> -->
 		<table>
 		<tr>
 			<td>이름</td>
