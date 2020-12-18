@@ -1,20 +1,24 @@
-<%@page import="util.CookieBox"%>
+<%@page import="form.loginFormData_sujin"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	CookieBox cookieBox = new CookieBox(request);
-
-	String saveId = cookieBox.exists("uid") ? cookieBox.getValue("uid") : "";
-	String checked = cookieBox.exists("uid") ? " checked" : "";
-%>    
 <!-- 
-로그인 
-
-로그인 폼 
--> 로그인 데이터를 beans 객체에 저장하고 request 내장객체의 속성에 저장
--> view.jsp 페이지로 forward
+로그인 처리를 구현해주세요.
+폼 -> 로그인 처리 ( 분기 : 성공과 실패) -> 로그인 체크 페이지 -> 로그아웃
+코드 답글로 올려주세요
  -->
+<%
+	loginFormData_sujin sessionData = (loginFormData_sujin)session.getAttribute("sessionData"); 
 
+	String saveId = "";
+	String saveIdChk = "";
+	
+	if(sessionData != null && sessionData.getIdChk() != null){
+		if(sessionData.getIdChk().equals("on")){
+			saveId = sessionData.getUserId();
+			saveIdChk = " checked";
+		}		
+	}
+%>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -44,7 +48,7 @@
             <tr>
             	<th></th>
                 <td >
-                    	<input type ="checkbox" name="chk" value="on" <%=checked%>> 아이디 저장 
+                    	<input type ="checkbox" name="chk" value="on" <%=saveIdChk%>> 아이디 저장 
                 </td>
 			</tr>
 			<tr>              
