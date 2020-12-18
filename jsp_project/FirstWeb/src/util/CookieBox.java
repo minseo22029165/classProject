@@ -20,10 +20,13 @@ public class CookieBox {
 		Cookie[] cookies = request.getCookies();
 		
 		if(cookies!= null && cookies.length>0) {
-				for(int i=0; i>cookies.length; i++) {
-					//cookieMap에 Cookie 객체를 저장 
-					cookieMap.put(cookies[i].getName(), cookies[i]);
-				}
+			
+			//System.out.print("cookies.length = " + cookies.length);
+			for(int i=0; i<cookies.length; i++) {
+				//cookieMap에 Cookie 객체를 저장 
+				cookieMap.put(cookies[i].getName(), cookies[i]);
+				
+			}
 			
 		}
 		
@@ -63,7 +66,7 @@ public class CookieBox {
 		Cookie cookie = new Cookie(name, value);
 		cookie.setPath(path);  // 보통은 / 로 넣어줌 
 		cookie.setMaxAge(maxAge);  // 유지시간 설정 
-		System.out.print(maxAge);
+		
 		return cookie;		
 	}
 	

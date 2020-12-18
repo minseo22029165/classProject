@@ -11,8 +11,8 @@
 로그인 
 
 로그인 폼 
--> 로그인 데이터를 benas 객체에 저장하고 request 내장객체의 속성에 저장
--> view jsp 페이지로 forwad
+-> 로그인 데이터를 beans 객체에 저장하고 request 내장객체의 속성에 저장
+-> view.jsp 페이지로 forwad
  -->
 
 <!DOCTYPE html>
