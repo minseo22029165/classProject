@@ -27,13 +27,13 @@
             <tr>
                 <th><label for="name">부서이름</label></th>
                 <td>
-                    <input type="text" id="name" name="name" value=<%=name%>>
+                    <input type="text" id="name" name="name" value=>
                 </td>
             </tr>            
             <tr>
                 <th><label for="loc">부서위치</label></th>
                 <td>
-                    <input type="text" id="loc" name="loc" value=<%=loc%>>
+                    <input type="text" id="loc" name="loc" value=>
                 </td>
             </tr>
 			<tr>              
