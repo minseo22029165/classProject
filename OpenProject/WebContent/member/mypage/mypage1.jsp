@@ -22,14 +22,16 @@
 		<h2 class="content_title">mypage1</h2>
 		<hr>
 		<div class="content">
-		<%=session.getAttribute("loginInfo") %><br>
+		<%-- <%=session.getAttribute("loginInfo") %><br> --%>
+		${loginInfo}
 		
 		<%
 			LoginInfo loginIfo = (LoginInfo)session.getAttribute("loginInfo");
 
 			if(loginIfo != null){
 		%>
-		<img src=<%=request.getContextPath() %>/images/<%=loginIfo.getMemberPhoto() %>>
+		<!-- <img src=<%=request.getContextPath() %>/images/<%=loginIfo.getMemberPhoto() %>> -->
+		<img src="${pageContext.request.contextPath}/images/${loginInfo.memberPhoto}">
 		<%
 			}
 		%>		

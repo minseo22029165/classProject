@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>세션 속성에 저장된  userName : <%=session.getAttribute("userName") %></h1>
-	<h1>세션 속성에 저장된  userName : ${userName }</h1>
-	<h1><a href="../index.jsp">index 로 이동</a></h1>
+	1. 선택한 상품 : ${param.sel } <br>
+	2. 상품설명 : ${product.display }  --> product.getDisplay()
+	2. 상품 : ${product.productList[0] } <br>
 </body>
 </html>

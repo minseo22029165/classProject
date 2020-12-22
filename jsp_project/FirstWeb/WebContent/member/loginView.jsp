@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 <%
 	// 저장 데이터 가져오기 
-	loginFormData formData = (loginFormData)request.getAttribute("loginData");
+	//loginFormData formData = (loginFormData)request.getAttribute("loginData");
 %>    
 <!DOCTYPE html>
 <html lang="ko">
@@ -22,13 +22,16 @@
         <tr>
             <th><label for="userid">아이디</label></th>
             <td>
-                <%=formData.getUserId()%>
+              <%-- <%=formData.getUserId()%>  --%>  
+              ${loginData.userId }
+              
             </td>
         </tr>
         <tr>
             <th><label for="pw">비밀번호</label></th>
             <td>
-                <%=formData.getUserPw() %>
+              <%--   <%=formData.getUserPw() %> --%>  
+              ${loginData.userPw }
             </td>
         </tr>
     </table>

@@ -1,5 +1,9 @@
+<%@page import="member.LoginInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	LoginInfo loginInfo = (LoginInfo) session.getAttribute("loginInfo");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,10 +21,11 @@
 	<%@ include file="/include/nav.jsp"  %>
 	
 	<div class="contents">
-		<h2 class="content_title">index</h2>
+		<h2 class="content_title">Login</h2>
 		<hr>
 		<div class="content">
-		인텍스 페이지 입니다.
+		로그인 되었습니다. <br>
+		<%= loginInfo %>
 		</div>
 	</div>
 	

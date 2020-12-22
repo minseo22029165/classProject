@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 <%
 	// 저장 데이터 가져오기 
-	regFormData formData = (regFormData)request.getAttribute("regData");
+	//regFormData formData = (regFormData)request.getAttribute("regData");
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -21,25 +21,29 @@
         <tr>
             <th><label for="userid">아이디(email)</label></th>
             <td>
-                <%=formData.getUserId()%>
+                 <%-- <%=formData.getUserId()%>--%>
+                 ${regData.userId }
             </td>
         </tr>
         <tr>
             <th><label for="pw">비밀번호</label></th>
             <td>
-                <%=formData.getUserPw()%>
+                 <%-- <%=formData.getUserPw()%>--%>
+                   ${regData.userPw }
             </td>
         </tr>
         <tr>
             <th><label for="username">이름</label></th>
             <td>
-                <%=formData.getUserName()%>
+                 <%-- <%=formData.getUserName()%>--%>
+                  ${regData.userName }
             </td>
         </tr>
         <tr>
             <th><label for="userPhoto">사진</label></th>
             <td>
                 <!-- <input type="file" id="userPhoto" name="userPhoto"> -->
+                ${regData.userPhoto }
                 
             </td>
         </tr>
