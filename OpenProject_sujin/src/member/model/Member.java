@@ -1,4 +1,4 @@
-package member;
+package member.model;
 
 // 회원 정보를 저장하는 beans 클래스 정의
 public class Member {
