@@ -5,7 +5,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
 <%
-	// list.jsp?page=1
 	String pageNumberStr = request.getParameter("page");
 	int pageNumber = 1;
 	if(pageNumberStr != null && !pageNumberStr.isEmpty()){
@@ -21,7 +20,6 @@
 	GetMessageListService listService = GetMessageListService.getInstance();
 	MessageListView listView = listService.getMessageList(pageNumber);
 	request.setAttribute("listView", listView);
-	
 %>    
 <!DOCTYPE html>
 <html>
@@ -114,7 +112,7 @@
 						</tr>	
 						<tr>
 							<td></td>
-							<td><a href="#">삭제하기</a></td>
+							<td><a href="deleteconfirm.jsp?mid=${message.id}">삭제하기</a></td>
 						</tr>																		
 					</table>
 				</div>

@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class jdbcUtil {
+public class JdbcUtil {
 	public static void close(ResultSet rs) {
 		if(rs != null) {
 			try {
@@ -39,5 +39,16 @@ public class jdbcUtil {
 				e.printStackTrace();
 			}
 		}	
-	}	
+	}
+	
+	public static void rollback(Connection conn) {
+		if(conn != null) {
+			try {
+				conn.rollback();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}	
+	}		
 }

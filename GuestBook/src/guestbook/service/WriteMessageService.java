@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import guestbook.dao.MessageDao;
 import guestbook.model.Message;
 import jdbc.ConnectionProvider;
-import jdbc.jdbcUtil;
+import jdbc.JdbcUtil;
 
 public class WriteMessageService {
 	
@@ -31,13 +31,13 @@ public class WriteMessageService {
 			dao = MessageDao.getInstance();			
 			resultFCnt = dao.insertMessage(conn, message);
 			
-			jdbcUtil.close(conn);		
+			JdbcUtil.close(conn);		
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			jdbcUtil.close(conn);			
+			JdbcUtil.close(conn);			
 		}
 		
 		return resultFCnt;				
