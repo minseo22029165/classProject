@@ -1,0 +1,10 @@
+## 메인페이지
+/index.do=mvc.command.IndexCommand
+/member/loginForm.do=mvc.command.LoginFormCommand
+/member/login.do=mvc.command.LoginCommand
+/member/logout.do=mvc.command.LogoutCommand
+/member/memberRegForm.do=mvc.command.MemberRegFormCommand
+/member/memberReg.do=mvc.command.MemberRegCommand
+/member/mypage/mypage1.do=mvc.command.Mypage1Command
+/member/mypage/mypage2.do=mvc.command.Mypage2Command
+/member/manager/memberList.do=mvc.command.MemberListCommand
