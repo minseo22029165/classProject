@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- jqery sdk 로드 -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$.getJSON('data.json', function(data){
+			$.each(data, function(index, value){
+				var html='<h3>이름 : ' + value.name + ', 가격 : ' + value.price + '</h3>';
+				$('#menu').append(html);
+				
+			});			
+		});
+	
+
+
+		
+	});
+</script>
+
+</head>
+<body>
+	<h1>메뉴</h1>
+	<div id="menu"></div>
+</body>
+</html>

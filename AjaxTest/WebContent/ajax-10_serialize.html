@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- jqery sdk 로드 -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+	$(document).ready(function(){
+		
+//			$('input:button').click(function(){
+			
+			
+// 			$.ajax({
+// 				url : 'parameter.jsp?pname=' + $('#pname').val() + '&price=' + $('#price').val(),
+// 				type : 'get',  // get, post, put, delete
+// // 				data : {
+// // 					pname : $('#pname').val(),
+// // 					price : $('#price').val()
+// // 				},
+// 				success : function(data){
+// 					$('body').append(data);
+// 				}
+				
+// 			});
+			
+//		});
+
+		$('#myform').submit(function(event){
+			
+			$.ajax({
+				url : 'parameter.jsp',
+				data : $(this).serialize(),
+				
+				success : function(data){
+					$('body').append(data);
+				}
+				
+			});
+			
+			return false;
+			
+		});
+			
+
+		
+	});
+</script>
+</head>
+<body>
+	<h3>제품등록</h3>
+	<form id="myform">
+		이름 : <input type="text" id="pname" name="pname"> 
+		가격 : <input type="text" id="price" name="price">
+		<input type ="submit" value="등록">
+	</form>
+	<h1>가격표</h1>
+
+</body>
+</html>
