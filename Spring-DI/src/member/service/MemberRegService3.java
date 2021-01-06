@@ -1,15 +1,13 @@
 package member.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import javax.annotation.Resource;
 
 import member.dao.Dao;
 //import member.dao.MemberDao;
 
-public class MemberRegService2 implements MemberService {
+public class MemberRegService3 implements MemberService {
 	
-	@Autowired(required = false)
-	@Qualifier("member")
+	@Resource(name = "guestDao")
 	private Dao dao; // 주입받아야 하는 참조 변수
 	
 
