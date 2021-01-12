@@ -4,11 +4,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import com.aia.firstspring.member.domain.LoginRequest;
 import com.aia.firstspring.member.domain.Member;
 
 @Repository
@@ -55,7 +58,7 @@ public class MemberDao {
 		
 	
 	public int selectTotalCount() {
-		return template.queryForObject("select count(*) from member ", Integer.class);
+		return template.queryForObject ("select count(*) from member ", Integer.class);
 	}
 
 
@@ -63,5 +66,30 @@ public class MemberDao {
 		String sql = "insert into member(memberid, membername, password) values(?, ?, ?) ";
 		
 		return template.update(sql, member.getMemberid(), member.getMembername(), member.getPassword());
+	}
+
+
+	public List<Member> loginMember(LoginRequest loginRequest) {
+		
+		return template.query(	"SELECT * FROM member where memberid=? and password=?", 
+								new Object[]{loginRequest.getUid(), loginRequest.getPw()},
+								new RowMapper<Member>() {
+									@Override
+									public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
+										Member member = new Member();
+										member.setIdx(rs.getInt("idx"));
+										member.setMemberid(rs.getString("memberid"));
+										member.setMembername(rs.getString("membername"));
+										member.setPassword(rs.getString("password"));
+										member.setMemberphoto(rs.getString("memberphoto"));
+										member.setRegdate(rs.getTimestamp("regdate"));
+										
+										return member;
+									}  	
+								
+								}		
+		);
+
+
 	}
 }
