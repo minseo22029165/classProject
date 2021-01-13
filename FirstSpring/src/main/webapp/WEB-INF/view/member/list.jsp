@@ -20,6 +20,7 @@
 			<th>비밀번호</th>
 			<th>사진</th>
 			<th>가입일</th>
+			<th>삭제</th>
 		</tr>
 		<c:forEach items="${members}" var="member">
 		<tr>
@@ -29,6 +30,7 @@
 			<td>${member.password}</td>
 			<td>${member.memberphoto}</td>
 			<td>${member.regdate}</td>
+			<td><a href="del?idx=${member.idx}">삭제</a></td>
 		</tr>
 		</c:forEach>
 		</table>

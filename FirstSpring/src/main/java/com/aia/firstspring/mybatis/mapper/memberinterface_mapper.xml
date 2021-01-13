@@ -19,6 +19,8 @@
 		select * from member where memberid = #{uid} and password = #{pw}
 	</select>	
 	
-	
+	<delete id="deleteMember" parameterType="int">
+		delete from member where idx = #{idx}
+	</delete>
 </mapper>
 
