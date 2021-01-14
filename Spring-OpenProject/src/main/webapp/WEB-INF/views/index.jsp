@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:url value="/css/default.css" var="url_defaultCss" scope="application"/>
+
 
 <!DOCTYPE html>
 <html>
@@ -9,7 +9,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <%-- <link rel="styleSheet" href="<%= request.getContextPath() %>/css/default.css"> --%>
-<link rel="styleSheet" href="${url_defaultCss}">
+<!-- <link rel="styleSheet" href="${url_defaultCss}"> -->
+<%@ include file="/WEB-INF/views/include/basicset.jsp"  %>
 </head>
 <body >
 
