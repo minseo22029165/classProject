@@ -68,6 +68,7 @@
 					<td>photo</td>
 					<td>registdate</td>
 					<td>삭제</td>
+					<td>수정</td>
 				</tr>
 				<c:forEach items="${listView.memberList}" var="member">
 				<tr>
@@ -75,12 +76,13 @@
 					<td>${member.memberid}</td>
 					<td>${member.membername}</td>
 					<td> 
-						<img src="<c:url value="/fileupload/member/${member.memberphoto}"/>">
+						<img width="100px" src="<c:url value="/fileupload/member/${member.memberphoto}"/>">
 					</td>
 					<td>
 						<fmt:formatDate value="${member.regdate}" pattern="yyyy.MM.dd"/>
 					</td>
 					<td><a href="javascript:deleteMember(${member.idx});">삭제</a></td>
+					<td><a href="<c:url value="/member/edit?idx=${member.idx}"/>">수정</a></td>
 				</tr>		
 				</c:forEach>		
 			</table> 

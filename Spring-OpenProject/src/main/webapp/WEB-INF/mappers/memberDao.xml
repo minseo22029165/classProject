@@ -12,7 +12,7 @@
 		<result column="regdate" property="regdate"></result>
 	</resultMap>
 	
-	<!-- Member 타입의 ResultMap : 로그인 시 사용 -->
+	<!-- Member 타입의 ResultMap : 패스워드 제외 -->
 	<resultMap id="memberListResult" type="com.aia.op.member.domain.Member">
 		<id column="idx" property="idx"></id>
 		<result column="memberid" property="memberid"></result>
@@ -24,7 +24,15 @@
 	<!-- 회원가입 -->
 	<insert id="insertMember" 
 		parameterType="com.aia.op.member.domain.Member">
-		INSERT INTO member (memberid, password, membername, memberphoto) VALUES (#{memberid}, #{password}, #{membername}, #{memberphoto})
+		INSERT INTO member
+		
+		<if test="memberphoto == null">
+		(memberid, password, membername) VALUES (#{memberid}, #{password}, #{membername})
+		</if>
+		 
+		<if test="memberphoto != null">
+		(memberid, password, membername, memberphoto) VALUES (#{memberid}, #{password}, #{membername}, #{memberphoto})
+		</if>		 
 	</insert>
 	
 	<!-- 로그인 -->
@@ -97,9 +105,20 @@
 		or membername like concat('%', #{searchParam.keyword}, '%')
 	</sql>
 	
-	
 	<delete id="deleteMemberByIdx">
 		delete from member where idx = #{idx}
 	</delete>
 	
+	<!-- 여기 들어오는 idx는 이름을 아무거나 써도 상관없음 dao.java 에서 들어오는 파라미터 순서에 따라 아무거나 써도됨 Member selectMemberByIdx(변수1, 변수2); -->
+	<select id="selectMemberByIdx" resultMap="memberListResult">
+		select * from member where idx = ${idx}
+	</select>
+	
+	<update id="updateMember" parameterType="com.aia.op.member.domain.Member">
+		update member 
+		   set membername = #{membername},
+		   	   password = #{password},  
+		       memberphoto = #{memberphoto}
+		 where idx = ${idx}
+	</update>
 </mapper>
