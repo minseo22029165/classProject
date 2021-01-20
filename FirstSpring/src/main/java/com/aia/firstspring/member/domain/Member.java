@@ -50,7 +50,10 @@ public class Member {
 	}
 	
 	public Date getToDate() {  // ${member.toDate}
-		return new Date(getRegdate().getTime());		
+		//return new Date(getRegdate().getTime());
+		
+		// 널값일때 null 로 되게 수정 
+		return getRegdate() == null? null : new Date(getRegdate().getTime());
 	}
 	
 	@Override

@@ -2,21 +2,20 @@ package com.aia.firstspring.member.service;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.aia.firstspring.member.dao.MemberInterfaceDao;
+import com.aia.firstspring.member.domain.Member;
 
-public class MemberDelService {
-	
+@Service   // bean 에 등록되어있음 
+public class MemberRestService {
 	private MemberInterfaceDao dao;
 	
-	@Autowired // 주입받는다. 
-	private SqlSessionTemplate template; 
-
-	public int deleteMember(int idx) {
-		int result = 0;
-
+	@Autowired
+	private SqlSessionTemplate template;
+	
+	public Member getMember(int idx) {
 		dao = template.getMapper(MemberInterfaceDao.class);
-		result = dao.deleteMember(idx);
-		return result;
+		return dao.selectByIdx(idx);
 	}
 }

@@ -19,8 +19,9 @@
 		select * from member where memberid = #{uid} and password = #{pw}
 	</select>	
 	
-	<delete id="deleteMember" parameterType="int">
-		delete from member where idx = #{idx}
-	</delete>
+	<select id="selectByIdx" resultType="com.aia.firstspring.member.domain.Member">
+		select * from member where idx = #{idx}
+	</select>
+
 </mapper>
 

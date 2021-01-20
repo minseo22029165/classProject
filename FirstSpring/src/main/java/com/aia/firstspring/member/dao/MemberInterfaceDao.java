@@ -15,5 +15,7 @@ public interface MemberInterfaceDao {
 	
 	List<Member> selectByIdPw(LoginRequest loginRequest);
 	
-	int deleteMember(int idx);
+	Member selectByIdx(int idx);
+		
+	Member getMember(int idx);		
 }
