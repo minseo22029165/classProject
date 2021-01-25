@@ -33,4 +33,15 @@ public interface MemberDao {
 
 	// 회원정보 수정 
 	int updateMember(Member member);
+	
+	// id 존재 유무 확인
+	int selectMemberByIdCount(String id); 
+	
+	// idx, verify 조회 
+	int selectMemberByIdxVerify(int idx); 
+	
+	// 인증처리 verify = 'Y'
+	int updateMemberVerify(int idx, String code);
+
+	
 }

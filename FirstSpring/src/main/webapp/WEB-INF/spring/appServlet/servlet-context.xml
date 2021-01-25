@@ -63,8 +63,6 @@
 		class="org.springframework.mail.SimpleMailMessage"
 		p:subject="회원가입을 축하합니다."
 		p:text="정상적인 회원가입을 위해서는 아래 링크를 클릭해주세요."
-		
-	
 	></beans:bean>
 	
 	
