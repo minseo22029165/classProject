@@ -8,20 +8,38 @@
 		
 	<!-- 데이터베이스 관련 설정  -->
 	<!-- datasource  -->
-	<bean id="dataSource" 
+	<!--<bean id="dataSource" 
 		class="com.zaxxer.hikari.HikariDataSource"
 		p:driverClassName="com.mysql.cj.jdbc.Driver"
 		p:jdbcUrl="jdbc:mysql://localhost:3306/open?serverTimezone=UTC"
 		p:username="aia"
 		p:password="aia"
-		/>
-	
+		/>  -->
+	<!-- log를 통해서 데이터를 확인해주는 걸로 변경 -->	
+	<bean id="dataSource" 
+		class="com.zaxxer.hikari.HikariDataSource"
+		p:driverClassName="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+		p:jdbcUrl="jdbc:log4jdbc:mysql://localhost:3306/open?serverTimezone=UTC"
+		p:username="aia"
+		p:password="aia"
+		/>	
+			
 	<!-- SqlsessionFactoryBean 등록 -->
+	
+	<!-- junit 테스트시 사용 -->
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean"
+		p:dataSource-ref="dataSource"
+		p:mapperLocations="classpath:com/aia/op/member/dao/mapper/*.xml"
+	 />
+	 
+	 <!-- 기본으로 이거 사용
 	<bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean"
 		p:dataSource-ref="dataSource"
 		p:mapperLocations="/WEB-INF/mappers/*.xml"
-	 />
+	 />	 
+	 -->
 	 
 	 <!-- SqlSessionTemplate 등록 -->
 	 <bean id="sqlSessionTemplate"
