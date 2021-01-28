@@ -26,7 +26,7 @@
 				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
-				 </exclusion>
+				</exclusion>
 			</exclusions>
 		</dependency>
 		<dependency>
@@ -254,7 +254,12 @@
 			<artifactId>spring-security-config</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-
+		
+		<dependency>
+		 <groupId>net.coobird</groupId>
+		 <artifactId>thumbnailator</artifactId>
+		 <version>0.4.8</version>
+		 </dependency>
 	</dependencies>
     <build>
         <plugins>

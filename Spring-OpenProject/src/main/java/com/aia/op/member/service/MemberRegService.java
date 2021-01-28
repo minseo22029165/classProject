@@ -1,6 +1,7 @@
 package com.aia.op.member.service;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,8 @@ import org.springframework.stereotype.Service;
 import com.aia.op.member.dao.MemberDao;
 import com.aia.op.member.domain.Member;
 import com.aia.op.member.domain.MemberRegRequest;
+
+import net.coobird.thumbnailator.Thumbnailator;
 
 @Service
 public class MemberRegService {
@@ -43,7 +46,16 @@ public class MemberRegService {
 			
 			/* 파일 저장 */
 			try {
-				regRequest.getUserPhoto().transferTo(newFile);
+	            //regRequest.getUserPhoto().transferTo(newFile);
+	            
+	            FileOutputStream thumnail = new FileOutputStream(new File(saveDirPath, "s_"+newFileName));
+	            
+	            // 썸네일 저장 100*100
+	            Thumbnailator.createThumbnail(regRequest.getUserPhoto().getInputStream(),
+	                  thumnail, 50, 50);
+	            
+	            thumnail.close();
+				
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -60,7 +72,12 @@ public class MemberRegService {
 		try {
 			// 데이터 베이스 입력
 			dao = template.getMapper(MemberDao.class);
+
+			// member_count > memberCount + 1 update
+			dao.memberCountUpdate();			
+			
 			result = dao.insertMember(member);
+			
 			
 			// 메일발송 : 인증 처리를 하는 페이지 /op/member/verify?id=40&code=난수
 			int mailsendCnt = mailSenderService.send(member);

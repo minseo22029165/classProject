@@ -82,7 +82,7 @@ div.searchBox {
 							<td>${member.memberid}</td>
 							<td>${member.membername}</td>
 							<td><img height="30" alt="프로필 사진"
-								src="<c:url value="/fileupload/member/${member.memberphoto}"/>">
+								src="<c:url value="/fileupload/member/s_${member.memberphoto}"/>">
 							</td>
 							<td><fmt:formatDate value="${member.regdate}"
 									pattern="yyyy.MM.dd." /></td>
