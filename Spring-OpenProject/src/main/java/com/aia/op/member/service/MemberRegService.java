@@ -69,27 +69,27 @@ public class MemberRegService {
 			member.setMemberphoto(newFileName);
 		}
 
-		try {
+//		try {
 			// 데이터 베이스 입력
 			dao = template.getMapper(MemberDao.class);
 
 			// member_count > memberCount + 1 update
 			dao.memberCountUpdate();			
 			
+			// 회원 db insert
 			result = dao.insertMember(member);
-			
 			
 			// 메일발송 : 인증 처리를 하는 페이지 /op/member/verify?id=40&code=난수
 			int mailsendCnt = mailSenderService.send(member);
 			System.out.println("메일 발송 처리 횟수 : " + mailsendCnt);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			// 현재 저장한 파일이 있다면??!! -> 삭제
-			if (newFile != null && newFile.exists()) {
-				newFile.delete();
-			}
-		}
+//			
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			// 현재 저장한 파일이 있다면??!! -> 삭제
+//			if (newFile != null && newFile.exists()) {
+//				newFile.delete();
+//			}
+//		}
 
 		return result;
 	}
