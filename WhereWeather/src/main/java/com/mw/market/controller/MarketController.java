@@ -4,22 +4,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/market")
+@RequestMapping(value = "/market")
 public class MarketController {
 	
-	@RequestMapping("/saleList") // /market/saleList
+	@RequestMapping("/salelist") // /market/salelist
 	public String saleList() {
-		return "market/saleList";
+		return "market/salelist";
 	}
 	
-	@RequestMapping("/saleReg") // /market/saleReg
+	@RequestMapping("/salereg") // /market/salereg
 	public String saleReg() {
-		return "market/saleReg";
+		return "market/salereg";
 	}
 	
-	@RequestMapping("/saleView") // /market/saleView
+	@RequestMapping("/saleview") // /market/saleview
 	public String saleView() {
-		return "market/saleView";
+		return "market/saleview";
 	}
 	
 }

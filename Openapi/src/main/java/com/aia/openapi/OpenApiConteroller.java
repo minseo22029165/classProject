@@ -33,8 +33,6 @@ public class OpenApiConteroller {
 		//URI 코드 % -> 25 encoding 방지.
 		URI uri = new URI(url); 
 
-		
-		//String apiData = template.getForObject(uri, String.class);
 		ApiData apiData = template.getForObject(uri, ApiData.class);
 
 		System.out.println(apiData);
@@ -43,7 +41,7 @@ public class OpenApiConteroller {
 	}
 
 	@CrossOrigin
-	@GetMapping("/api")
+	@GetMapping("api")
 	public String getApiData2(HttpServletResponse response) throws URISyntaxException {
 
 		RestTemplate template = new RestTemplate();
@@ -57,7 +55,6 @@ public class OpenApiConteroller {
 
 		//URI 코드 % -> 25 encoding 방지.
 		URI uri = new URI(url); 
-
 		
 		String apiData = template.getForObject(uri, String.class);
 		
