@@ -41,7 +41,6 @@
 			<mapping path="/mypage/**"/>
 			<beans:bean class="com.aia.op.member.intercepter.AuthCheckIntercepter" />
 		</interceptor>
-	
 	</interceptors>
 	
 	
