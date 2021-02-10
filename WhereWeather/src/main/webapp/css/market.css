@@ -1,0 +1,96 @@
+
+#write_btn {
+    background-image: url(http://localhost:8081/image/icon/write.png);
+    width: 50px;
+    height: 50px;
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 100px;
+    border: 0px;
+    background-color: #64c2eb;
+    position: fixed;
+    bottom: 80px;
+    right: 15px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/*
+#write_btn {
+	position: absolute;
+	right: 30px;
+	bottom : 80px;
+	background-color: #64c2eb;
+	padding: 10px;	
+	border-radius: 40px;
+}
+
+.write_img{
+	width : 30px;
+	border : 0;
+	cursor: pointer;
+}
+*/
+.write_form{
+	position : relative;
+	padding: 10px;	
+}
+
+.write_form_btn{
+	position: absolute;
+	right: 10px;
+	top : 0;
+	width : 30px;	
+}
+
+.search_div{
+	position : relative;
+	width : 100%;
+	height: 50px;
+	right: 10px;
+}
+
+.search_input{
+	position: absolute;
+	right: 0;
+	width : 200px;
+}
+
+.img_upload{
+	width : 70px;	
+}
+
+.thumbnail{
+	width : 50px;	
+	height : 50px;		
+}
+
+.img_upload_div {
+	float: left;
+}
+
+.img_preview {
+	float: left;
+}
+
+.preview-box {
+	float: right;	
+	padding: 5px;	
+}
+
+.img_delete {
+	position: relative;
+	right: 0;
+	top : 0;	
+	border-radius: 70px;
+}
+
+.x-btn{
+	width : 15px;
+	z-index: 10;	
+}
+
+.image_list{
+	height: 200px;	
+}

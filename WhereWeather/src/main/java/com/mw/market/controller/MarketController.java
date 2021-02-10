@@ -1,25 +1,16 @@
 package com.mw.market.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping(value = "/market")
 public class MarketController {
 	
-	@RequestMapping("/salelist") // /market/salelist
+	@GetMapping
 	public String saleList() {
-		return "market/salelist";
-	}
-	
-	@RequestMapping("/salereg") // /market/salereg
-	public String saleReg() {
-		return "market/salereg";
-	}
-	
-	@RequestMapping("/saleview") // /market/saleview
-	public String saleView() {
-		return "market/saleview";
+		return "market/index";
 	}
 	
 }
