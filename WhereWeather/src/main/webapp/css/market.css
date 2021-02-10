@@ -94,3 +94,19 @@
 .image_list{
 	height: 200px;	
 }
+
+.reply_upd_btn {
+	position: relative;
+	right: 0;
+	top : 0;	
+	float: right;
+	
+}
+
+.sale_reg_btn {
+	position: relative;
+	right: 0;
+	top : 0;	
+	float: right;	
+	
+}

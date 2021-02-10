@@ -16,7 +16,7 @@
 	<title>+WEATHER WEAR+</title>
 	
 	<link rel="styleSheet" href="<c:url value="/css/default.css"/>">
-	<link rel="styleSheet" href="<c:url value="/css/market.css?2021020811"/>">
+	<link rel="styleSheet" href="<c:url value="/css/market.css?20210208151"/>">
 	
 	<%@ include file="/WEB-INF/views/include/basicset.jsp"%>
    
@@ -58,69 +58,98 @@
 			// 판매 목록 호출 
 			fnSaleList();
 		});
-
-
-
-		
-		// 구매 등록폼
-		function fnSaleWriteForm(){
+ 
+		// 구매 수정폼
+		function fnSaleUpdForm(saleNo){
 			// 페이지 테그 삭제
 			$('#market *').remove();
+			$('#saleNo').val(saleNo);
 		    
-			// 구매 등록폼
-			
-			var html = '';
-			// 검색
-			html += '<div class="write_form" >';
-			html += '	<div>마켓 글쓰기</div>';
-			html += '	<div class="write_form_btn" >';
-			html += ' 	 	<button type="button" class="btn btn-outline-primary" onclick="fnSaleReg();">등록</button>';
-			html += '	</div>';
-			html += '</div>';
-		
-			// 첨부 버튼 
-            html += '<div id="attach">';
-            html += '	<div class="img_upload_div">';
-            html += '		<label for="uploadInput">';
-            html += '    		<img class="img_upload" src="/image/icon/carmera.png">';
-            html += '     	</label>';
-            html += '     	<input id="uploadInput" style="display: none" type="file" name="filedata" multiple onchange="addPreview($(this));"/>';
-            html += '	</div>';
-            // 미리보기 영역
-            html += '	<div id="preview" class="img_preview"></div>';
-            html += '</div>';            
-            
-            // multipart 업로드시 영역 
-            html += '<form id="saleRegForm" />';
-			html += '<table class="table">';
-    		html += '	<tr>';
-			html += '      	<td>';
+			$.ajax({
+				url : myHostUrl + '/market/sale/view/' + saleNo,
+				type : 'GET',
+				success : function(data){
+						
+					var html = '';
+					// 검색
+					html += '<div class="write_form" >';
+					html += '	<div>마켓 글쓰기</div>';
+					html += '	<div class="write_form_btn" >';
+					html += ' 	 	<button type="button" class="btn btn-outline-primary" onclick="fnSaleReg();">완료</button>';
+					html += '	</div>';
+					html += '</div>';
+				
+					// 첨부 버튼 
+		            html += '<div id="attach">';
+		            html += '	<div class="img_upload_div">';
+		            html += '		<label for="uploadInput">';
+		            html += '    		<img class="img_upload" src="/image/icon/carmera.png">';
+		            html += '     	</label>';
+		            html += '     	<input id="uploadInput" style="display: none" type="file" name="filedata" multiple onchange="addPreview($(this));"/>';
+		            html += '	</div>';
+		            // 미리보기 영역
+		            html += '	<div id="preview" class="img_preview">';
+		            
+					// 이미지 목록
+					if(data.imageList.length > 0){
+						previewIndex = data.imageList.length + 1;
+						for(var i = 0 ; i < data.imageList.length ; i++) {
+	                        html += '<div class="preview-box" value="' + (i + 1)  +'">';
+	                        html += '	<a class="img_delete" href="#" value="' + (i + 1) + '" onclick="deletePreview(this)"><img class="x-btn" src="/image/icon/x.png"></a>';
+	                        html += '	<img class="thumbnail rounded" src="' + data.imageList[i].fileNameAll + '">';                         
+	                        html += '</div>';
+						}
+					}
+		            
+		            html += '	</div>';
+		            html += '</div>';            
+		            
+		            // multipart 업로드시 영역 
+		            html += '<form id="saleRegForm" />';
+					html += '<table class="table">';
+		    		html += '	<tr>';
+					html += '      	<td>';
+					
+		 			html += '      		<input id="saleTitle" name="saleTitle" value="' + data.saleMember.saleTitle + '" class="form-control" type="text" placeholder="제목">';
+		 			html += '      		<input id="saleAmount" name="saleAmount" value="' + data.saleMember.saleAmount + '" class="form-control" type="number" placeholder="가격">';
+					
+	 				var payDivChk_K = '';
+	 				var payDivChk_D = 'checked';		 			
+		 			if (data.saleMember.payDiv == 'K'){
+		 				payDivChk_K = 'checked';
+		 				payDivChk_D = '';
+		 			}
+		 			html += '			<br><br>';
+		 			html += '      		<div class="form-check form-check-inline">';
+		 			html += '        		<input class="form-check-input" type="radio" name="inlineRadioOptions" id="payDiv" name="payDiv" value="D" ' + payDivChk_D + '>';
+		 			html += '        		<label class="form-check-label" for="inlineRadio1">직접결제</label>';
+		 			html += '      		</div>';
+		 			html += '      		<div class="form-check form-check-inline">';
+		 			html += '        		<input class="form-check-input" type="radio" name="inlineRadioOptions" id="payDiv" name="payDiv" value="K" ' + payDivChk_K + '>';
+		 			html += '        		<label class="form-check-label" for="inlineRadio2">카카오페이</label>';
+		 			html += '      		</div>';
+		 			html += '        	<div class="form-group">';
+		 			html += '          		<label for="exampleFormControlTextarea1"></label>';
+		 			html += '          		<textarea id="saleCmt" name="saleCmt" class="form-control" id="exampleFormControlTextarea1" rows="5">' + data.saleMember.saleCmt + '</textarea>';
+		 			html += '        	</div>';
+					
+					html += '		</td>';
+					html += '    </tr>';
 
- 			html += '      		<input id="saleTitle" name="saleTitle" class="form-control" type="text" placeholder="제목">';
- 			html += '      		<input id="saleAmount" name="saleAmount" class="form-control" type="number" placeholder="가격">';
+					html += '</table>';	
 			
- 			html += '			<br><br>';
- 			html += '      		<div class="form-check form-check-inline">';
- 			html += '        		<input class="form-check-input" type="radio" name="inlineRadioOptions" id="payDiv" name="payDiv" value="D" checked>';
- 			html += '        		<label class="form-check-label" for="inlineRadio1">직접결제</label>';
- 			html += '      		</div>';
- 			html += '      		<div class="form-check form-check-inline">';
- 			html += '        		<input class="form-check-input" type="radio" name="inlineRadioOptions" id="payDiv" name="payDiv" value="K">';
- 			html += '        		<label class="form-check-label" for="inlineRadio2">카카오페이</label>';
- 			html += '      		</div>';
- 			html += '        	<div class="form-group">';
- 			html += '          		<label for="exampleFormControlTextarea1"></label>';
- 			html += '          		<textarea id="saleCmt" name="saleCmt" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>';
- 			html += '        	</div>';
+					$('#market').append(html);					
+					
+				},
+				error : function(e){
+					console.log("에러발생 : " + e);
+				}
+				
+				
+			});				
 			
-			html += '		</td>';
-			html += '    </tr>';
 
-			html += '</table>';	
-	
-			$('#market').append(html);	
 		}
-		
 	
 		// 상품 등록
 		function fnSaleReg(){
@@ -210,24 +239,24 @@
 
 		}
         
-		
-        // image preview 기능 구현
+	    // image preview 기능 구현
         // input = file object[]
         function addPreview(input) {
             if (input[0].files) {
                 //파일 선택이 여러개였을 시의 대응
+                
                 for (var fileIndex = 0; fileIndex < input[0].files.length; fileIndex++) {
                     var file = input[0].files[fileIndex];
- 
-                    if (validation(file.name))
+                    alert(file)
+                   
+                    var imgNum = previewIndex++;
+                    
+                    if (validation(file.name)){
                         continue;
- 
+                    }    
+                    
                     var reader = new FileReader();
                     reader.onload = function(img) {
-                        //div id="preview" 내에 동적코드추가.
-                        //이 부분을 수정해서 이미지 링크 외 파일명, 사이즈 등의 부가설명을 할 수 있을 것이다.
-                        var imgNum = previewIndex++;
-                        
                         var html = '';
                         html += '<div class="preview-box" value="' + imgNum  +'">';
                         html += '	<a class="img_delete" href="#" value="' + imgNum + '" onclick="deletePreview(this)"><img class="x-btn" src="/image/icon/x.png"></a>';
@@ -235,13 +264,15 @@
                         html += '</div>';
                         
                         $("#preview").append(html);
-                        files[imgNum] = file;
+  
                     };
                     reader.readAsDataURL(file);
+
+                    files[imgNum] = file;
                 }
-            } else
-                alert('invalid file input'); // 첨부클릭 후 취소시의 대응책은 세우지 않았다.
+            } 
         }	
+        
         //preview 영역에서 삭제 버튼 클릭시 해당 미리보기이미지 영역 삭제
         function deletePreview(obj) {
             var imgNum = obj.attributes['value'].value;
@@ -265,69 +296,7 @@
                 return false;
             }
         }
-        
-		// 판매 목록
-		function fnSaleList(){
-			$.ajax({
-				url : myHostUrl + '/market/sale',
-				type : 'GET',
-				success : function(data){
 
-					// 글쓰기
-					var html = '';
-					html += '<a href="javascript:fnSaleWriteForm()"><div id="write_btn"></div></a>';
-					
-					// 검색
-					html += '<div class="search_div" >;'
-					html += '	<div class="search_input" >';
-					html += '		<div class="input-group">';
-					html += '  			<input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="button-addon2">';
-					html += '			<div class="input-group-append">';
-					html += '  				<button class="btn btn-outline-primary" type="button" id="button-addon2">Search</button>';
-
-					html += '			</div>';
-					html += '		</div>';
-					html += '	</div>';
-					html += '</div>';
-					
-					$('#market').append(html);
-					
-					// 리스트
-					for(var i = 0 ; i < data.saleList.length; i++) {
-						mainFileName = data.saleList[i].fileName;
-	
-						if(mainFileName == '' || mainFileName == null){
-							mainFileName = '/image/icon/default.png';
-						}
-						html = '<a href="javascript:fnViewInfo(' + data.saleList[i].saleNo + ')">';
-						html += '<div class="card mb-3" style="max-width: 100%;">';
-						html += '  <div class="row g-0">';
-						html += '    <div class="col-3" >';
-						html += '      <img src="' + mainFileName + '" width="100px">';
-						html += '    </div>';
-						html += '    <div class="col-9">';
-						html += '      <div class="card-body">';
-						html += '        <h5 class="card-title">' + data.saleList[i].saleTitle + '</h5>';
-						html += '        <p class="card-text">' + data.saleList[i].saleAmount + '</p>';
-						html += '        <p class="card-text">' + data.saleList[i].saleDate + '<small class="text-muted"> <img src="/image/icon/comment.png" width="15px"> ' + data.saleList[i].comCnt + ' <img src="/image/icon/heart.png" width="15px"> ' + data.saleList[i].goodCnt + '</small></p>';
-						html += '      </div>';
-						html += '    </div>';
-						html += '  </div>';
-						html += '</div>';
-				    	html += '</a>';
-						
-				    	$('#market').append(html);
-					} 	
-					
-					
-					
-				},
-				error : function(e){
-					console.log("에러발생 : " + e);
-				}
-			});
-		}		
-		
 		// 구매목록 상세보기 
 		function fnViewInfo(saleNo){
 			// 페이지 테그 삭제
@@ -389,14 +358,33 @@
 					html += '  <thead>';
 					html += '    <tr>';
 					html += '      	<th scope="col">' + data.saleMember.saleNic + '</th>';
+					html += '      	<th scope="col">';
+					
+					// 내 글인 경우에만 수정, 삭제 허용 START
+					html += '    	<div class="sale_reg_btn dropleft">';
+
+					if(memIdx == data.saleMember.saleIdx){
+						html += '    	<a class="btn btn-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor:pointer;">';
+						html += '    		<img src="/image/icon/usefulbutton.png" style="width:15px;">';
+						html += '		</a>';
+						html += '    	<div class="dropdown-menu" aria-labelledby="dropdown01">';
+						html += '    		<a class="dropdown-item" href="javascript:fnSaleDel(' + saleNo + ');">삭제</a>';
+						html += '    	    <a class="dropdown-item" href="javascript:fnSaleUpdForm(' + saleNo + ');">수정</a>';
+						html += '    	</div>';
+					}
+					html += '    	</div>';
+					// 내 글인 경우에만 수정, 삭제 허용 END					
+					
+					html += '      	</th>';
 					html += '    </tr>';
 					html += '  </thead>';
 					html += '  <tbody>';
 					html += '    <tr>';
-					html += '      	<td>';
+					html += '      	<td colspan="2">';
 					html += data.saleMember.saleTitle + '<br>';
 					html += data.saleMember.saleDate + '<br><br>';
 					html += data.saleMember.saleCmt + '<br><br>';
+					html += data.saleMember.saleAmount + '<br><br>';					
 					html += '댓글 ' + data.saleMember.comCnt + '개 ＊ 조아요 ' + data.saleMember.goodCnt + ' ＊ 조회 ' + data.saleMember.readCnt + '<br>';
 					html += '		</td>';
 					html += '    </tr>';
@@ -427,6 +415,8 @@
 			});			
 		}       
 
+
+				
 	</script>    
 	<script src="<c:url value="/js/market.js?20210208"/>"></script>
 </body>

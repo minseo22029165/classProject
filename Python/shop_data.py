@@ -60,7 +60,7 @@ print('insert_count', insert_count)
 for i in range(20):
     print('data-', i, ':', sample_list[i])
 
-with open('new_shop_coffee_seoul_data.csv', 'w', encoding='utf8') as new_file: 
+with open('new_shop_coffee_seoul_data.csv', 'w', encoding='utf-8') as new_file: 
     writer = csv.writer(new_file, delimiter=',', quotechar="'", quoting=csv.QUOTE_ALL)
     # 해더 쓰기
     writer.writerow(data_header)
