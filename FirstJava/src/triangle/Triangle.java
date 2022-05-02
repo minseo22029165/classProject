@@ -4,6 +4,7 @@ public class Triangle {
 
 	float width = 0;
 	float height = 0; 
+	private double line;
 	
 	// 밑변과 높이 정보를 변경시킬 수 있는 메서드
 	void updateSize(int x, int y) {
@@ -29,7 +30,9 @@ public class Triangle {
 		// 삼각형 넓이 계산 
 		float triangleSize = 0;
 		triangleSize = triangle.triangeArea();
-		System.out.println("삼각형 가로 : " + triangle.width + ", 삼각형 세로 : " + triangle.height + ", 삼각형 넓이 : " + triangleSize);
+		triangle.line=Math.sqrt(triangleSize);
+		System.out.println("삼각형 가로 : " + triangle.width + ", 삼각형 세로 : " + triangle.height + ", 삼각형 넓이 : " + triangleSize 
+					+ ", 같은 넓이의 정사각형의 한변의 길이 : " + triangle.line);
 	}
 
 }
